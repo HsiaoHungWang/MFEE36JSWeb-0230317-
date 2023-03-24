@@ -45,6 +45,28 @@
         // console.log("台北到高雄坐 " + Transportation);
 
         //TODO：請輸入三個數字比大小，印出最大值
+        const num1 = parseInt(window.prompt("請輸入數字1", 0));
+        const num2 = parseInt(window.prompt("請輸入數字2", 0));
+        const num3 = parseInt(window.prompt("請輸入數字3", 0));
+        let max = 0;
+        // if (num1 > num2) {
+        //     max = num1;
+        // } else {
+        //     max = num2;
+        // }
+        // if (max < num3) {
+        //     max = num3;
+        // }
+        if (num1 >= num2 && num1 >= num3) {
+            max = num1;
+        } else if (num2 >= num1 && num2 >= num3) {
+            max = num2;
+        } else {
+            max = num3;
+        }
+        //console.log("最大值：" + max);
+        console.log(`最大值：${max}`);
+
 
     </script>
 </body>
