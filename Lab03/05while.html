@@ -13,9 +13,12 @@
         let sum = 0;
         while (i <= 10) {
             sum += i;
-            if (i >= 6) break;
+            if (i >= 6) {
+                break;
+                //continue;
+            }
             console.log("i=" + i + ",sum=" + sum);
-            i = i + 2;
+            i = i + 2;  //i += 2
         }       
     </script>
 </body>
