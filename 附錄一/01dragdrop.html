@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01dragdrop.html</title>
+    <style>
+        #dragItem{
+                   width:100px;height:30px;
+                   border:1px solid blue;
+                   background-color:beige;
+                   margin:10px
+	             }
+        .dragItemStyle{
+                        width:100px;height:30px;
+                        border:1px solid blue;
+                        background-color:beige;
+                        margin:10px
+	                   }
+
+        #dropZone,#dropZone1{
+                             width:150px;height:100px;
+                             border:1px solid blue;
+                             float:left;
+                             overflow:auto;
+	                        }
+
+    </style>
+</head>
+<body>
+    <!--
+      <div id="dragItem" draggable="true" ondragstart="dragStartHandler(event)">Drag me</div>
+      <div id="dropZone"  ondragover="dragoverHandler(event)" ondrop="dropHandler(event)"></div>
+      <div id="dropZone1"  ondragover="dragoverHandler(event)" ondrop="dropHandler(event)"></div>
+    -->
+    <div id="dragItem" draggable="true">Drag me</div>
+    <div id="dropZone"></div>
+    <div id="dropZone1"></div>
+
+    <script>
+        document.querySelector("#dragItem").addEventListener("dragstart", dragStartHandler);
+        document.querySelector("#dropZone").addEventListener("dragover", dragoverHandler);
+        document.querySelector("#dropZone").addEventListener("drop", dropHandler);
+        document.querySelector("#dropZone1").addEventListener("dragover", dragoverHandler);
+        document.querySelector("#dropZone1").addEventListener("drop", dropHandler);
+
+        function dragStartHandler(e) {
+            //儲存要拖放的資料
+
+        }
+
+
+        function dragoverHandler(e) {
+            //取消預設動作
+        }
+
+        function dropHandler(e) {
+            //取消預設動作
+
+            //取出拖放資料
+
+            //建立div元素
+
+
+            //設定屬性及外觀
+
+
+
+            //新增到dropZone or dropZone1元素後面
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02localStorage.html</title>
+</head>
+<body>
+    <p> You have viewed this page localStorage <span id="count">an untold number of</span> time(s). </p> 
+
+    <script >
+        if (!localStorage.pageLoadCountLocal) {
+            localStorage.pageLoadCountLocal = 0;
+        }
+        localStorage.pageLoadCountLocal = parseInt(localStorage.pageLoadCountLocal) + 1;
+        document.getElementById('count').textContent = localStorage.pageLoadCountLocal;
+
+        /*
+        let value=localStorage.getItem("pageLoadCountLocal")
+        if (!localStorage.value) {
+        localStorage.setItem("pageLoadCountLocal",0); 
+        }
+        value=parseInt(value)+1;  
+        localStorage.setItem("pageLoadCountLocal",value)
+        document.getElementById('count').textContent = value;
+        */
+    </script>
+</body>
+</html>

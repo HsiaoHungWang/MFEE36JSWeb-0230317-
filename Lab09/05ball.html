@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>05ball.html</title>
+    <style>
+        /*
+        relative:沒有設定任何屬性的情況下，會和Static的呈現方式一樣
+        (照著瀏覽器預設的配置自動排版在頁面上)。和Static不同的地方就在於，
+        可以透過 top、left、bottom 與 right 的數值來改變位置
+        
+        absolute:基準點會以屬性是Relative的父層為基準，
+        所以如果沒有Relative父層的情況下，會直接找到body為基準點
+        */
+
+        #container {
+            position: relative;  
+            width: 600px;
+            height: 300px;
+            background-color:lightcyan;
+            } 
+            
+        .ball {
+            position: absolute; 
+            width: 40px;
+            height: 40px;
+            background-color: blue;
+            border-radius: 50%;
+            color: white;
+            line-height: 40px;
+            text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <script>
+        let container = document.querySelector("#container");
+        let ball, i;
+        for( i=0; i<10; i++){
+            ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.innerHTML = i+1;
+            ball.style.left = i*50 + 'px';
+            ball.style.top = '100px';
+            container.appendChild(ball);
+        }
+    </script>        
+</body>
+</html>

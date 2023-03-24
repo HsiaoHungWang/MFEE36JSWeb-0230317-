@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>08pieCharts.html</title>
+    <link rel="stylesheet"  type="text/css" href="style.css" />
+    <script src="chartsData.js"></script>
+    <script>
+        let can, ctx,
+            numSamples,
+            xScalar, yScalar,
+            radius, quarter;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // set this value for your data
+            //numSamples = 4;
+            can = document.getElementById("can");
+            quarter = document.getElementById("quarter");
+            ctx = can.getContext("2d");
+            drawPie();
+        });
+
+        function drawPie() {
+            radius = 160;
+            let midX = can.width / 2;
+            let midY = can.height / 2;
+            ctx.strokeStyle = "black";
+            ctx.font = "18pt Helvetica";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            // calculate total value of pie
+            let total = 0;
+            for (let key in xy) {
+                total += xy[key][1];
+            }
+            // get ready to draw
+            ctx.clearRect(0, 0, can.width, can.height);
+
+            let oldAngle = 0;
+
+            // for each sample
+            for (let key in xy) {
+                // draw wedge
+                let portion = xy[key][1] / total;
+                let wedge = 2 * Math.PI * portion;
+                ctx.beginPath();
+                let angle = oldAngle + wedge;
+                ctx.arc(midX, midY, radius, oldAngle, angle);
+
+                ctx.lineTo(midX, midY);
+                ctx.closePath();
+                ctx.fillStyle = xy[key][2];
+                ctx.fill();    // fill with wedge color
+                ctx.stroke();  // outline in black
+
+                // print label
+                // set angle to middle of wedge
+                let labAngle = oldAngle + wedge / 2;
+                // set x, y for label outside center of wedge
+                // adjust for fact text is wider than it is tall        
+
+                let labX = midX + Math.cos(labAngle) * radius * 1.2;
+                let labY = midY + Math.sin(labAngle) * radius * 1.185 - 12;
+                // print name and value with black shadow
+
+                ctx.shadowColor = "black";
+                ctx.shadowOffsetX = 1;
+                ctx.shadowOffsetY = -1;
+                ctx.fillStyle = xy[key][2];
+
+                ctx.fillText(xy[key][1], labX, labY + 15);
+
+                // update beginning angle for next wedge
+                oldAngle += wedge;
+            }
+        }
+    </script>
+</head>
+<body>
+    <canvas id="can" height="400" width="500"/>
+</body>
+</html>

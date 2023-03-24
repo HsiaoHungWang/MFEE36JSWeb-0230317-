@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02magicHard.html</title>    
+</head>
+<body>
+    <h1 style="text-align:center">Welcome to the DOM Magic Shop!</h1>
+	<form name="magic-hat" >
+		<p style="text-align:center">
+			<img alt="" src="DOMImage/topHat.gif" id="topHat"/>
+			<br/><br/>
+			<input type="button" id="hocusPocus" value="Hocus Pocus!" onclick="showRabbit();"/>				
+		</p>
+    </form>
+    <script>
+        function showRabbit() {
+            let hatImage = document.getElementById("topHat");
+
+            let newImage = document.createElement("img");
+            newImage.setAttribute("src", "DOMImage/rabbit-hat.gif");
+
+            let imgParent = hatImage.parentNode;
+            //alert(imgParent.tagName);
+
+            imgParent.replaceChild(newImage, hatImage);
+        }
+    </script>
+</body>
+</html>

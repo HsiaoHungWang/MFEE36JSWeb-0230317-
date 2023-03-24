@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>03DOMCreateDelete.html</title>
+</head>
+
+<body>
+    <div id="iddiv">div</div>
+    <input type="button" id="CEle" value="CreateElement">
+
+    <script>
+        document.querySelector("#CEle").addEventListener("click", CreateElement)
+
+        function CreateElement() {
+            let theDIV = document.querySelector("#iddiv");  //取得div物件
+
+            let eleP = document.createElement("p");
+            let txtP = document.createTextNode("Hello World");
+            eleP.appendChild(txtP);
+
+            theDIV.appendChild(eleP);
+
+            let eleImg = document.createElement("img");
+            eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");
+
+            theDIV.appendChild(eleImg);
+        }
+    </script>
+</body>
+</html>

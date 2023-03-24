@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03promise1.html</title>
+</head>
+<body>
+    <script>
+        let p = new Promise(function(resolve, reject) {
+			setTimeout(function(){
+				resolve('hello world');
+			}, 1000);
+		});
+
+        p.then(function(value) {
+        console.log(p);				
+        console.log(value + '1');		
+        });
+        
+        p.then(function(value) {
+        console.log(p);				
+        console.log(value + '2');		
+        });
+
+        console.log(p);					
+    </script>
+</body>
+</html>

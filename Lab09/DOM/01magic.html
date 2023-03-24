@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01magic.html</title>    
+</head>
+<body>
+    <h1 style="text-align:center">Welcome to the DOM Magic Shop!</h1>
+	<form name="magic-hat" >
+		<p style="text-align:center">
+			<img alt="" src="DOMImage/topHat.gif" id="topHat"/>
+			<br/><br/>
+			<input type="button" id="hocusPocus" value="Hocus Pocus!" onclick="showRabbit();"/>				
+		</p>
+    </form>
+    <script>
+        function showRabbit() {
+            let hatImage = document.getElementById("topHat");
+            hatImage.setAttribute("src", "DOMImage/rabbit-hat.gif");
+
+            let button = document.getElementById("hocusPocus");
+            button.setAttribute("value", "Get back in that hat!");
+
+            button.onclick = hideRabbit;
+            //button.removeEventListener("click", showRabbit);
+            //button.addEventListener("click", hideRabbit);
+            
+        }
+        function hideRabbit() {
+            let hatImage = document.getElementById("topHat");
+            hatImage.setAttribute("src", "DOMImage/topHat.gif");
+
+            let button = document.getElementById("hocusPocus");
+            button.setAttribute("value", "Hocus Pocus");
+
+            button.onclick = showRabbit;
+            //button.removeEventListener("click", hideRabbit);
+            //button.addEventListener("click", showRabbit);
+        }
+    </script>
+</body>
+</html>

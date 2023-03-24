@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>03dynamicContent.html</title>
+    
+</head>
+<body>
+    <h1 id="h">this is heading 1</h1>
+	<input type="button" id="butinnerText" value="textContent" />
+	<input type="button" id="butinnerHTML" value="innerHTML" />
+	<input type="button" id="butouterText" value="outerText" />
+    <input type="button" id="butouterHTML" value="outerHTML" />   
+    <script>
+        document.getElementById("butinnerText").addEventListener("click",TextContent);  //事件繫結
+        document.getElementById("butinnerHTML").addEventListener("click",InnerHTML);
+        document.getElementById("butouterText").addEventListener("click",OuterText);
+        document.getElementById("butouterHTML").addEventListener("click",OuterHTML);
+
+        function TextContent() {
+           document.getElementById("h").textContent = "<i>italic</i>";
+        }
+
+        function InnerHTML() {
+            document.getElementById("h").innerHTML = "<i>italic</i>";
+        }
+
+        function OuterText() {
+            document.getElementById("h").outerText = "<i>italic</i>";  
+        }
+
+        function OuterHTML() {
+            document.getElementById("h").outerHTML = "<i>italic</i>";
+        }          
+    </script>
+</body>
+</html>

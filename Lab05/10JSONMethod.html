@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>10JSONMethod.html</title>
+</head>
+<body>
+    <script>          
+        //Object
+        var obj1 = {name: "Tom", b: 20, c: {d:40,e:50} };
+        var str = JSON.stringify(obj1);  //把物件轉成字串
+        var obj2 = JSON.parse(str);   //把字串轉成JavaScript原生物件
+
+        console.log("obj1:",obj1); 
+        console.log("str:", str); 
+        console.log("obj2:", obj2);  
+          
+
+       
+    </script>
+        
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>05dynamicInsert.html</title>
+    
+</head>
+<body>
+    <h1 id="h" style="background-color:yellow">this is heading 1</h1>
+	<input type="button" id="butbb" value="BeforeBegin" />
+	<input type="button" id="butab" value="AfterBegin" />
+	<input type="button" id="butbe" value="BeforeEnd" />
+    <input type="button" id="butae" value="AfterEnd" />
+    <script>
+        document.getElementById("butbb").addEventListener("click",bb);  //事件繫結
+        document.getElementById("butab").addEventListener("click",ab);
+        document.getElementById("butbe").addEventListener("click",be);
+        document.getElementById("butae").addEventListener("click",ae);
+
+        function bb() {
+            document.getElementById("h").insertAdjacentHTML("beforebegin", "add BeforeBegin aaaa");
+        }
+
+        function ab() {
+            document.getElementById("h").insertAdjacentHTML("afterbegin", "add AfterBegin aaaa");
+        }
+
+        function be() {
+            document.getElementById("h").insertAdjacentHTML("beforeend", "add BeforeEnd zzzzz");
+        }
+
+        function ae() {
+            document.getElementById("h").insertAdjacentHTML("afterend", "add AfterEnd zzzzz");
+        }
+    </script>
+</body>
+</html>

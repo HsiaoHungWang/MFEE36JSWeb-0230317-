@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>07lineCharts.html</title>
+    <link rel="stylesheet"  type="text/css" href="style.css" />
+    <script src="chartsData.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = document.getElementById('columnCanvas');
+            let context = canvas.getContext('2d');
+            //
+            context.lineWidth = 4;
+            context.moveTo(40, 40);
+            context.lineTo(40, 360);
+            context.lineTo(600, 360);
+            context.stroke();
+            // 水平線
+            context.lineWidth = 0.5;
+            for (let i = 0; i < 6; i++) {
+                context.font = "10pt Verdana";
+                context.textAlign = "right";
+                context.textBaseline = "middle";
+                context.fillStyle = "blue";
+                context.fillText(-(60 * i - 300), 36, 60 * (i + 1));
+
+                context.moveTo(40, 60 * (i + 1));
+                context.lineTo(600, 60 * (i + 1));
+                context.stroke();
+            }
+            //資料
+            let space = 560 / (len + 1);
+            let linepx = new Array();
+            let linepy = new Array();
+
+            for (let i = 0; i < len; i++) {
+                context.beginPath();
+                context.lineWidth = 2;
+                context.fillStyle = xy[i][2];
+                let xvalue = space * (i + 1) + 36;
+
+                //context.moveTo(xvalue, 360 - xy[i][1]);
+
+                linepx[i] = xvalue;
+                linepy[i] = 360 - xy[i][1];
+
+                context.arc(xvalue, 360 - xy[i][1], 4, 0, Math.PI * 2, false);
+                //context.fillStyle = "red";
+                context.fill();
+
+
+                context.font = "20pt 標楷體";
+                context.textAlign = "center";
+                context.textBaseline = "middle";
+                //context.fillStyle = "red";
+                context.fillText(xy[i][0], xvalue + 30, 360 - xy[i][1]);
+            }
+            context.beginPath();
+            //context.strokeStyle = 'blue'; 
+            for (let i = 0; i < len; i++) {
+
+                if (i == 0)
+                    context.moveTo(linepx[i], linepy[i]);
+                else {
+                    context.beginPath();
+                    context.moveTo(linepx[i - 1], linepy[i - 1]);
+                    context.lineTo(linepx[i], linepy[i]);
+
+                    context.strokeStyle = xy[i - 1][2];
+                    context.stroke()
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="charts"  >
+        <canvas id="columnCanvas" width="700" height="400" ></canvas>
+    </div>
+</body>
+</html>

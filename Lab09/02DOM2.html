@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02DOM2.html</title>
+</head>
+<body>
+    <h1>Hello DOM</h1>
+    <p>I am a JavaScript</p>
+	<ul>
+		<li>aaaaa</li>
+		<li>bbbbb</li>
+		<li>ccccc</li>
+		<li>ddddd</li>
+		<li>eeeee</li>
+		<li>fffff</li>
+    </ul>
+
+    <script >
+        //*****************************************
+        //nodeName 讀取元素節點內容，得到是元素名稱
+        //nodeValue 讀取文字節點內容，得到的是文字內容
+        //nodeType 讀取節點類型
+        //*****************************************
+      
+        let root =document.documentElement;
+        // console.log(root.nodeName);
+        let thehead=root.firstElementChild;  //HEAD
+        let thebody=root.lastElementChild;  //BODY
+        let theUl=thebody.firstElementChild.nextElementSibling.nextElementSibling;  //UL
+        let theUlchilds=theUl.childElementCount;        
+        // console.log(theUl.childNodes);
+        // console.log(theUl.childNodes[1].firstChild.nodeValue);
+        // console.log(theUl.children);  //6
+        // console.log(theUl.children[0].innerHTML)
+        // console.log(theUl.firstElementChild);
+
+        // let childEl = theUl.firstElementChild;
+        // while ( childEl ) {
+        //     console.log(childEl);
+        //     console.log(childEl.innerHTML)
+        //     childEl = childEl.nextElementSibling;                    
+        // }
+    </script>
+</body>
+</html>

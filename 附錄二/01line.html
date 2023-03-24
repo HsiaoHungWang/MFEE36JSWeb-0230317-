@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01line.html</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            //取得camvas物件
+            let canvas = document.getElementById("myCanvas");
+            //產生CanvasRenderingContext2D物件
+            let context = canvas.getContext("2d");
+
+            //開始一條新路徑
+            context.beginPath();
+            //設定一條新的子路徑的開始位置
+            context.moveTo(100, 50);
+            //在目前位置新增一條直線
+            context.lineTo(50, 100);
+            context.lineTo(150, 100);
+            //context.lineTo(100,50);
+
+            //設定線條寬度
+            context.lineWidth = 10;
+            //設定線條連接點
+            context.lineJoin = "round";  //bevel,round,miter
+            //關閉路徑
+            context.closePath();
+
+            //設定路徑的顏色
+            context.strokeStyle = "#ff0000";
+            //沿著當前目前路徑繪製一條直線
+            context.stroke();
+
+            //填滿路徑的顏色
+            context.fillStyle = "#0000ff";
+            //填滿路徑內部
+            context.fill();
+
+        });
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas"  width="400" height="300"></canvas>
+</body>
+</html>

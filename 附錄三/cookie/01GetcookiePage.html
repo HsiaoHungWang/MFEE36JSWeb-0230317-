@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <script>
+    document.addEventListener("DOMContentLoaded",function(){
+        
+            
+            let theName=decodeURI(document.cookie.split("=")[1]);
+            if(theName=="Jack")
+                alert(theName);
+            else{
+                alert("not login");
+                location.href="01LoginPage.html";
+            } 
+                
+       
+    })
+    
+    </script>
+</head>
+<body>
+    <h1>cookiePage2</h1>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01CurrentPosition.html</title>
+    
+</head>
+<body>
+    <script>
+        if (navigator.geolocation) {
+            alert("支援HTML5 Geolocation");
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback,
+                    { timeout: 5000, maximumAge: 6000, enableHighAccuracy: true }
+            //設定取得位置資訊的時間限制  //設定位置資訊的有效期限,0馬上取得位置資訊 //要求取得高資精確度的位置資訊    
+            );
+        } else {
+            error('Geo Location is not supported');
+        }
+    
+        function successCallback(position) {
+            alert("緯度" + position.coords.latitude + "經度" + position.coords.longitude);
+        }
+    
+        function errorCallback(error) {
+            switch (error.code) {
+                case 0:
+                    alert(error.message);
+                    break;
+                case 1:
+                    alert("使用者拒絕使用");
+                    break;
+                case 2:
+                    alert("瀏覽器無法處理");
+                    break;
+                case 3:
+                    alert("瀏覽器時間到了無法取得位置");
+                    break;
+
+                default:
+                    alert("who knows");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02XMLHttpJSON.html</title>
+</head>
+
+<body>
+    <select id="idsel"></select>
+    <script>
+        let selCountry = document.getElementById("idsel")
+
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', function () {
+            const datas = JSON.parse(xhr.responseText);
+
+            console.log(datas)
+            for (let data of datas) {
+                const opt = document.createElement("option");
+                opt.value = data.zip;
+                opt.innerHTML = data.name;
+                selCountry.appendChild(opt)
+            }
+        })
+        xhr.open('get', 'dist.txt');
+        xhr.send();
+
+    </script>
+</body>
+
+</html>

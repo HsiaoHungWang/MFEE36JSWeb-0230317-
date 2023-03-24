@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>06columnCharts.html</title>
+    <link rel="stylesheet"  type="text/css" href="style.css" />
+    <script  src="chartsData.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = document.getElementById('columnCanvas');
+            let context = canvas.getContext('2d');
+            //垂直軸
+            context.lineWidth = 4;
+            context.moveTo(40, 40);
+            context.lineTo(40, 360);
+            context.lineTo(600, 360);
+            context.stroke();
+
+            // 水平線與水平軸
+            context.lineWidth = 0.5;
+            for (let i = 0; i < 6; i++) {
+                context.font = "10pt Verdana";
+                context.textAlign = "right";
+                context.textBaseline = "middle";
+                context.fillStyle = "blue";
+                context.fillText(-(60 * i - 300), 36, 60 * (i + 1));
+                context.moveTo(40, 60 * (i + 1));
+                context.lineTo(600, 60 * (i + 1));
+                context.stroke();
+
+
+            }
+            //資料
+            let space = 560 / (len + 1);
+            for (let i = 0; i < len; i++) {
+                context.beginPath();
+                context.lineWidth = 40;
+                context.strokeStyle = xy[i][2];
+                let xvalue = space * (i + 1) + 36;
+                context.moveTo(xvalue, 360 - 2);
+                context.lineTo(xvalue, 360 - xy[i][1]);
+                context.stroke();
+
+                context.font = "20pt 標楷體";
+                context.textAlign = "center";
+                context.textBaseline = "middle";
+                context.fillStyle = "blue";
+                context.fillText(xy[i][0], xvalue, 380);
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <div id="charts"  >
+        <canvas id="columnCanvas" width="700" height="400" ></canvas>
+    </div>
+</body>
+</html>

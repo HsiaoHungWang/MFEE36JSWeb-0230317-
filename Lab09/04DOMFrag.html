@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04DOMFrag.html</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <script>
+        //避免在迴圈中存取DOM
+        var emp = {
+            "employees": [
+                    { "name": "Tom", "workYears": 3, "salary": 35000 },
+                    { "name": "Jack", "workYears": 5, "salary": 40000 },
+                    { "name": "Mary", "workYears": 7, "salary": 45000 }
+            ]
+        };
+
+        /*
+        //將DOM參考指派給區域變數，並使用此區域變數來操作
+        var myDiv=document.getElementById("div1");
+        //較佳，處理時使用區域變數，最後再用到DOM
+        var str = "<ul>"; 
+        
+        for (var i=0;i<emp.employees.length;i++){ 
+            var name = emp.employees[i].name;
+            var wy = emp.employees[i].workYears;
+            var s = emp.employees[i].salary; 
+            str += "<li>" + name + ", ";
+            str += wy + "," + s + "</li>";
+        }
+        str += "</ul>";
+        
+        myDiv.innerHTML = str;
+        */
+
+        /*
+        //速度慢，不要這樣作
+        document.getElementById("div1").innerHTML="<ul>";
+        
+        for (var i=0;i<emp.employees.length;i++){ 
+            var name = emp.employees[i].name;
+            var wy = emp.employees[i].workYears;
+            var s = emp.employees[i].salary; 
+            document.getElementById("div1").innerHTML += "<li>" + name + ", "+wy + "," + s + "</li>";
+        }
+        
+        document.getElementById("div1").innerHTML += "</ul>";
+        */
+
+
+        /*   
+        //減少瀏覽器reflow，使用文件片斷 
+        console.log(new Date().getTime());   
+        for(var i=0;i<5000;i++){
+            var item=document.createElement("div");
+            item.innerHTML="Element"+i;
+            item.style.backgroundColor="darkturquoise";
+            item.style.padding="5px";
+            item.style.margin="5px";
+            item.style.float='left';
+            document.querySelector("body").append(item)      
+        }    
+        console.log(new Date().getTime());
+
+        console.log(new Date().getTime());
+        let docFrag = document.createDocumentFragment();
+        for(var i=0;i<5000;i++){
+            var item=document.createElement("div");
+            item.innerHTML="Element"+i;
+            item.style.backgroundColor='darkturquoise';
+            item.style.padding="5px";
+            item.style.margin="5px";
+            item.style.float='left';
+            docFrag.appendChild(item);        
+        }
+        document.querySelector("body").append(docFrag);
+        console.log(new Date().getTime());
+        */
+    </script>
+</body>
+</html>

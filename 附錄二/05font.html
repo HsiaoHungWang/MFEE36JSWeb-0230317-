@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>05font.html</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            //取得camvas物件
+            let canvas = document.getElementById("myCanvas");
+            //產生CanvasRenderingContext2D物件
+            let context = canvas.getContext("2d");
+
+            let x = canvas.width / 2;   //x=250
+            let y = canvas.height / 2;  //y=200
+
+            context.font = "30pt Calibri";
+            context.textAlign = "center";     //x=250為center
+            context.textBaseline = "middle";    //y=200為middle
+            context.strokeStyle = "blue";    //設定線條顏色
+            context.strokeText("Hello Canvas Text!", x, y);  //繪製指定字串的外框線
+
+
+            context.fillStyle = "purple";   //設定填滿顏色
+            context.fillText("Hello Canvas Text!", x, y);  //繪製指定字串的填色方式
+        });
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" style="background-color:pink;" width="500" height="400"></canvas>
+</body>
+</html>

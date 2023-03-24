@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>05eventObject.html</title>
+    
+</head>
+<body>
+    <!--HTML屬性事件處理程序-->
+    <!-- IE8 -->
+    <input type="button" id="idmouseIE" value="HTML屬性事件(IE8)" onmousedown="IEmouseDown();" />
+    <!-- Firefox-->
+    <input type="button" id="idmouseFx" value="HTML屬性事件(Firefox)" onmousedown="FirefoxmouseDown(event);" />
+
+    <!--W3C DOM 事件處理程序-->
+    <input type="button" id="idmouse2" value="JavaScript屬性事件" />    
+    
+    <script>
+        //IE8~10 回傳1，edge,chrome,friefox,safari 回傳0 表示使用者按下左鍵
+        //IE8~10 回傳4，edge,chrome,friefox,safari 回傳1 表示使用者按下滾輪
+        //IE8~10 回傳2，edge,chrome,friefox,safari 回傳2 表示使用者按下右鍵
+        function IEmouseDown() {    //IE8以前是透過全域變數window.event來取用這個物件
+            alert(event.type);
+            alert(event.button);
+        }
+        
+        //IE8 回傳1，IE9~10,edge,chrome,friefox,safari 回傳0 表示使用者按下左鍵
+        //IE8 回傳4，IE9~10,edge,chrome,friefox,safari 回傳1 表示使用者按下滾輪
+        //IE8 回傳2，IE9~10,edge,chrome,friefox,safari 回傳2 表示使用者按下右鍵
+        function FirefoxmouseDown(nsevent) {  //以event物件作為參數來使用
+            //console.log(nsevent);
+            alert(nsevent.type);
+            alert(nsevent.button);
+        }
+      
+
+        //W3C DOM 事件處理程序(IE9以上)
+        //document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                               
+
+
+        //JavaScript屬性事件處理程序(IE8以下)
+        //document.getElementById("idmouse2").onmousedown = mouseDown;        
+    </script>
+</body>
+</html>

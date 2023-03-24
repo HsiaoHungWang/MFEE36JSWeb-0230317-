@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>01eventHandler5.html</title>
+    <script>
+        function f1() {
+            alert("method 1");
+        }
+
+        function f2() {
+            alert("method 2");
+        }
+
+        function f3() {
+            alert("method 3");
+        } 
+        document.addEventListener("DOMContentLoaded",function(){ 
+            document.getElementById("m2").onclick=f2;
+            document.getElementById("m2").onclick=function() {
+                alert("method 2x");
+            } 
+            document.getElementById("m3").addEventListener("click",f3); 
+            document.getElementById("m3").addEventListener("click",function() {
+                alert("method 3x");
+            });
+        })
+    </script>
+</head>
+<body>
+    <!-- HTML屬性事件處理程序 -->
+    <h1 onclick="f1();">method 1</h1>
+    
+    <!-- JavaScript屬性事件處理程序 -->
+    <h1 id="m2">method 2</h1>
+    
+    <!-- W3C DOM 事件處理程序 -->
+    <h1 id="m3">method 3</h1>
+
+    
+        
+</body>
+</html>

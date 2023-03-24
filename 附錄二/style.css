@@ -1,0 +1,8 @@
+﻿div#charts 
+{
+    float:left;
+    width:710px;
+    height:410px; 
+    border:1px dotted  ;
+}  
+

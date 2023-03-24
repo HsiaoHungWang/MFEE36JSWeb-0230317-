@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>03dragImage.html</title>
+    <style>
+        #dropZone {
+            width: 600px;
+            height: 300px;
+            border: 1px solid blue;
+            float: left;
+        }
+
+        .thumb {
+            height: 75px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!--<div id="dropZone" ondragover="dragoverHandler(event)" ondrop="dropHandler(event)"></div>-->
+    <div id="dropZone"></div>
+
+    <script>
+        document.querySelector("#dropZone").addEventListener("dragover", dragoverHandler);
+        document.querySelector("#dropZone").addEventListener("drop", dropHandler);
+
+        function dragoverHandler(e) {
+            e.preventDefault();
+        }
+
+        function dropHandler(e) {
+            e.preventDefault();
+            //取得使用者在檔案選擇標籤中選取檔案
+            var theFiles = e.dataTransfer.files;
+            for (var i = 0; i < theFiles.length; i++) {
+                var theFile = theFiles[i];
+                //1. 建立FileReader物件
+                var reader = new FileReader();
+                //3.onload資料讀取成功完成時觸發
+                reader.addEventListener("load", function (e) {
+                    //4. 將檔案內容暫存
+                    //alert(e.target.result);
+                    var fileContent = e.target.result;
+                    //5. 建立img標籤
+                    var imgObj = document.createElement("img");  //<img>
+                    //6. 設定img的src屬性
+                    imgObj.setAttribute("src", fileContent);//<img src="...">
+                    //7. 設定img的class屬性
+                    imgObj.setAttribute("class", "thumb");//<img src="..." class="....>
+                    //8. 將 img 物件新增到div標籤後
+                    document.getElementById("dropZone").appendChild(imgObj);
+                });
+                //2. 使用readAsDataURL方法，讀取檔案內容
+                reader.readAsDataURL(theFile);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01getElementContent.html</title>
+</head>
+
+<body>
+    <div id="myDiv"></div>
+    <script>
+        // var ele = document.getElementById("myDiv");
+        // // console.log(ele);
+        // ele.innerHTML = "<h2>MMFE36</h2>";
+        // console.log(ele.innerHTML);
+        // // ele.innerHTML = ele.innerHTML + "JavaScript";
+        // ele.innerHTML += "JavaScriptxxxx";
+
+        try {
+            var ele = document.getElementById("myDivx");
+            ele.innerHTML = "<h2>MMFE36</h2>";
+        } catch (e) {
+            console.log(e.message);
+            console.log("找不到物件");
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>01XMLHttprequest.html</title>
+</head>
+<body>
+    <div id="theDiv"></div>
+    
+    <script>    
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+        console.log(this.readyState, this.status);
+        if(this.readyState===4 && this.status===200){
+            document.querySelector('#theDiv').innerHTML = this.responseText;
+
+        }
+        };
+        xhr.open('GET','ajaxText.txt', true); // 第三個參數為async        
+        xhr.send();  
+    
+    
+    // var xmlHttp = new XMLHttpRequest();
+    // xmlHttp.onreadystatechange=returnData;
+    // xmlHttp.open("GET", "hello_ajax.txt", true);
+    // xmlHttp.send(null);
+
+    // function returnData(){
+    //     console.log(this.readyState, this.status);
+    //     if (this.readyState==4 && this.status == 200){
+    //             theDiv.innerHTML = this.responseText;
+    //     }
+        
+    // }
+
+    </script>
+
+      
+</body>
+</html>

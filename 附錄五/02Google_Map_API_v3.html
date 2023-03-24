@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02Google_Map_API_v3.html</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <style>
+        html, body {
+            margin: 0;padding: 0;
+        }
+
+        #map {
+            width: 800px; height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6vteqqtM8IIMZ04ux9c5_eX9xCIHt6ts&callback=initMap">
+    </script>
+
+    <script>
+        function initMap() {
+            let latlng = new google.maps.LatLng(25.0337866, 121.54319800000007);
+            let myOptions = { zoom: 13, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            let map = new google.maps.Map(document.getElementById("map"), myOptions);
+            let marker = new google.maps.Marker({ position: latlng, title: "Hello World!" });
+            // To add the marker to the map, call setMap();
+            marker.setMap(map);
+        }
+    </script> 
+</body >
+</html>
+

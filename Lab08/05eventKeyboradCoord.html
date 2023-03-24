@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>05eventKeyboradCoord.html</title>    
+</head>
+<body>    
+    <input type="button" id="idbut" value="座標" />
+    <script> 
+        //鍵盤事件繫結
+        document.addEventListener("keydown", keyDown);  //大小寫鍵，控制鍵        
+        function keyDown(event) {
+            if (event.altKey) alert("ALT");
+            if (event.ctrlKey) alert("CTRL");
+            if (event.shiftKey) alert("SHIFT");
+        } 
+        
+        //座標事件繫結
+        document.getElementById("idbut").addEventListener("click",CoordXY);
+        function CoordXY(event) {
+           
+        }
+    </script>
+</body>
+</html>

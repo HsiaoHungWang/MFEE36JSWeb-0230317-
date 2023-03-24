@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04promise2.html</title>
+</head>
+<body>
+
+    <h2>JavaScript Promise</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        function Display(some) {
+        document.getElementById("demo").innerHTML = some;
+        }
+
+        let myPromise = new Promise(function(Resolve, Reject) {
+            let x = 0;  //改值
+
+            if (x == 0) {
+                Resolve("OK");
+            } else {
+                Reject("Error");
+            }
+        });
+
+        myPromise.then(
+            function(value) {
+                Display(value);
+        }).catch(
+            function(error) {
+                Display(error);
+        }).finally(
+            function(){
+                console.log("end");            
+        });
+    </script>
+
+</body>
+</html>

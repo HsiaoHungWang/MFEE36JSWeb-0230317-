@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01Cookie.html</title>
+    
+    
+</head>
+<body>
+    <input type="button" id="cookieset" value="設定 cookie" />
+	<input type="button" id="cookiedel" value="刪除 cookie" />
+	<input type="button" id="cookieget" value="顯示 cookie" />
+
+    <script>       
+        document.getElementById("cookieset").addEventListener("click",function () { setCookie('name', 'Jack'); });
+        document.getElementById("cookiedel").addEventListener("click", function () { delCookie('name'); });
+        document.getElementById("cookieget").addEventListener("click", function () { getCookie(); });
+
+        function setCookie(key, value) {            
+            document.cookie = "name2=Mary;expires=Tue 10 Dec 2019 20:47:11 GMT; path=/";
+            let cookieDate = new Date(2019, 11, 10, 19, 30, 30);
+            document.cookie = key + "=" + encodeURI(value) + ";expires=" + cookieDate.toGMTString() + ";path=/";
+            alert(document.cookie);  //name2=Mary;name=Jack
+
+        }
+        function delCookie(key) {
+            let exp = new Date(); 
+            //alert(exp);
+            exp.setTime(exp.getTime() - (24 * 60 * 60 * 1000));
+            //alert(exp);
+            //document.cookie = "name=Jack;expires=Mon 10 Dec 2022 20:47:11 GMT; path=/";
+            document.cookie = key + "=" + "; expires=" + exp.toGMTString() + ";path=/";
+        }
+        
+        function getCookie() {           
+            document.write("<p>原始 Cookie 字串：" + document.cookie + "</p>");
+            document.write("<p>拆解後的 name/value：</p>");           
+            document.write("<table style='border:solid red 2px;border-collapse:collapse'>");
+            document.write("<tr><th style='border:solid red 2px;color:green'>Name</th><th style='border:solid red 2px;color:green'>Value</th></tr>");
+            if (document.cookie != "") {
+                cookieArray = document.cookie.split(";");
+                for (let i = 0; i < cookieArray.length; i++) {
+                    thisCookie = cookieArray[i].split("=");
+                    cookieName = decodeURI(thisCookie[0]);
+                    cookieValue = decodeURI(thisCookie[1]);
+                    document.write("<tr><td style='border:solid red 2px'>" + cookieName + "</td><td style='border:solid red 2px'>" + cookieValue + "</td></tr>");                    
+                }
+                document.write("</table>");
+            }
+        }
+    </script>
+</body>
+</html>

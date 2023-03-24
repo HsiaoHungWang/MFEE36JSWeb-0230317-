@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>shopping_cartNew.html</title>
+    <style type="text/css">
+		/* ==================== layout ==================== */
+			#container	{width: 1000px;
+				margin: auto;}
+			
+			#main	{width: 1000px;
+				float: left;}
+				
+			#sidebar01	{width: 100px;
+				float: left;
+				margin: 30px 0;}
+				
+			#content	{width: 500px;height:700px;
+				float: left;
+				margin: 30px 10px;}
+			
+			
+			
+			#dropZone	{width: 300px;height:450px;
+				float: right;
+				margin: 30px 10px;
+				background-color:pink;
+				border:1px solid blue; overflow: auto}
+			
+			#foot	{clear: both;}
+
+
+		/* ==================== header ==================== */
+			#header	{width: auto;
+				height: 200px;
+				background-image: url(image/sample_header.jpg);	}
+			
+			#header_inner	{padding: 20px;}
+			
+			#header h1	{margin: 0;
+				font-size: 2em;
+				font-family: Verdana, Helvetica, sans-serif;}
+			
+			#header p	{margin: 0;
+				margin-top: 8px;
+				font-size: 1em;}
+			
+		
+		
+		/* ==================== sidebar ==================== */
+			.menu	{width: auto;
+				font-size: 0.75em;}
+			
+			.menu li	{border-bottom: solid 1px #aaaaaa;
+				padding-bottom: 8px;
+				margin-bottom: 8px;
+				line-height: 1.2;
+				list-style-type: none;}
+			
+			.menu li a	{color: #000000;
+				text-decoration: none;}
+			
+			.menu li a:hover	{color: #ff8800}
+			
+			.menu ul	{margin: 0;
+				padding: 0;
+				border-top: solid 1px #aaaaaa;
+				padding-top: 8px;}
+		
+		
+		/* ==================== body ==================== */
+			#table1{/*border:1px solid green;*/
+			              width:500px;
+			              border-collapse:collapse;
+			              display:none;
+			            }         
+			         
+			#table1 td{width:200px;}
+			       	
+			#table2{border:1px solid green;
+			              width:300px;
+			              border-collapse:collapse;}                   		
+			
+			th{border:1px solid green;
+			           border-bottom:3px double red;}           
+			          
+			              
+			#table2 td{border:1px solid green;}
+			       
+			.thumb{height:75px;margin:5px;}
+		
+		
+		/* ==================== footer ==================== */
+			#footer	{width: auto;
+				border-top: solid 5px #b8e964;
+				padding-top: 10px;
+				padding-bottom: 20px;}
+			
+			#footer p	{color: #000000;
+				font-size: 0.75em;
+				margin: 0;}
+
+
+
+    </style>
+
+	</head>
+
+	<body>
+		
+		<div id="container">
+			<div id="header">
+				<div id="header_inner">
+					<h1>Homepage Title</h1>
+				</div>
+			</div>
+			<div id="main">	
+                <div id="sidebar01">
+					<div class="menu">
+						<ul>
+						<li><a href="#">選單連結1</a></li>
+						<li><a href="#">選單連結2</a></li>
+						<li><a href="#">選單連結3</a></li>
+						<li><a href="#">選單連結4</a></li>
+						<li><a href="#">選單連結5</a></li>
+						<li><a href="#">選單連結6</a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="content" draggable="true" ondragstart="dragStartHandler(event)">
+										
+					<table id="table1" >   
+    					<tbody id="tbody1"></tbody>
+					</table>
+				</div>	
+				
+			
+				<div id="dropZone" ondragenter="dragenterHandler(event)" ondragover="dragoverHandler(event)" ondrop="dropHandler(event)">
+					<table id="table2" >   
+    					<tbody id="tbody2">
+    						<th style="width:50px;">序號</th>
+    						<th>書籍圖片</th>
+    						<th>書籍名稱</th>
+    						<th>單價</th>
+    						<th>數量</th>
+    					</tbody>
+					</table>
+                   
+					<div style="position:absolute;top:700px;">
+						<hr style="width:300px;color:gray;"/>
+						<span id="idtotal" style="float:right" value="123">小計:0元</span>
+					</div>
+                </div>
+			</div>
+
+			
+			<div id="foot">
+				<div id="footer">
+	
+					<p>Copyright &copy; AUTHOR NAME, All Rights Reserved.</p>
+	
+				</div>
+			</div>
+				
+		</div>
+		
+		
+		<script>
+		    var shopping_list = 
+			[["KT1001", "新一代 JavaScript 程式設計精解", 580, "image/JS1.webp"],
+			["KT1002", "JavaScript 精選16堂課：網頁程式設計實作", 550, "image/JS2.webp"],
+			["KT1003", "jQuery 最強圖解實戰講座", 450, "image/JQ1.jpg"],
+			["KT1004", "jQuery 實戰手冊, 3/e", 580, "image/JQ2.jpg"],
+			["KT1005", "最完整跨平台網頁設計：HTML + CSS", 1000, "image/HTML1.webp"],
+			["KT1006", "HTML / CSS 網頁設計實務 22堂課：一學就會！", 420, "image/HTML2.webp"],
+			["KT1007", "Visual C# 全面攻略", 620, "image/CSharp.webp"],
+			["KT1008", "Java SE 14 技術手冊", 680, "image/JAVA.webp"]]
+
+		    //inital product
+			var theTable = document.getElementById("table1");
+			theTable.style.display = "block";
+			var theTbody = document.getElementById("tbody1");
+
+			for (var i = 0; i < shopping_list.length; i++) {
+				if (i % 3 == 0) {
+					var row = document.createElement("tr");
+				}
+
+				var cellImage = document.createElement("td");
+				var txtImage = document.createElement("img");
+				txtImage.setAttribute("src", shopping_list[i][3]);
+				txtImage.setAttribute("id", shopping_list[i][0]);
+				txtImage.style.width="120px";
+				txtImage.style.height="164px";
+				cellImage.appendChild(txtImage);
+
+
+				var cellBr = document.createElement("br");
+				var txtName = document.createTextNode(shopping_list[i][1]);
+				cellImage.appendChild(cellBr);
+				cellImage.appendChild(txtName);
+
+
+				var txtPriceName = document.createTextNode("定價 : ");
+				var txtPrice = document.createTextNode(shopping_list[i][2]);
+				var cellBr = document.createElement("br");
+				cellImage.appendChild(cellBr);
+				cellImage.appendChild(txtPriceName);
+				cellImage.appendChild(txtPrice);
+
+				row.appendChild(cellImage);
+
+				theTbody.appendChild(row);
+			}  
+			
+			var no = 1;
+		    var subtotal = 0;
+		    var hasIDTotal = 0;
+			
+			//localStorage 是否有資料
+			if(localStorage.length!=0){
+				console.log(localStorage);
+				var theTbody = document.getElementById("tbody2");
+				// var row = document.createElement("tr");
+
+				for(let i=0;i<localStorage.length;i++){
+					console.log(localStorage.key(i));
+					let key=localStorage.key(i)
+					
+					for (let j = 0; j < shopping_list.length; j++) {
+						console.log(shopping_list[j][0])
+						if(shopping_list[j][0]==key){
+							console.log(key);
+							var row = document.createElement("tr");
+							var cellID = document.createElement("td");
+							var txtID = document.createTextNode(no++);
+							cellID.appendChild(txtID);
+
+							var cellName = document.createElement("td");
+							var txtName = document.createTextNode(shopping_list[j][1]);
+							cellName.appendChild(txtName);
+
+							var cellPrice = document.createElement("td");
+							var txtPrice = document.createTextNode(shopping_list[j][2]);
+							cellPrice.appendChild(txtPrice);
+
+							var cellImage = document.createElement("td");
+							var eleImg = document.createElement("img");  //<img>
+							eleImg.setAttribute("src", shopping_list[j][3]);     //<img src=...>
+							eleImg.setAttribute("class", "thumb");       //<img src=... class='thumb'>
+							cellImage.appendChild(eleImg);
+
+							var cellQtyTD = document.createElement("td");
+							var cellQty = document.createElement("input");
+							cellQty.setAttribute("type", "text");
+							cellQty.setAttribute("size", 3);
+							let qty=localStorage[key]
+							cellQty.setAttribute("value", qty);
+							cellQty.setAttribute("id", "id" + shopping_list[j][0]);
+							cellQtyTD.appendChild(cellQty);
+							subtotal = parseInt(subtotal) + parseInt(txtPrice.nodeValue)*parseInt(qty);
+
+							row.appendChild(cellID);
+							row.appendChild(cellImage);
+							row.appendChild(cellName);
+							row.appendChild(cellPrice);
+							row.appendChild(cellQtyTD);
+
+							theTbody.appendChild(row);
+
+							document.getElementById("idtotal").innerHTML = "小計 : " + subtotal;
+							break;
+						}	//if(shopping_list[j][0]==key)					
+						
+					}  //for shopping_list.length
+
+				}  //for localStorage.length
+				
+			}  // if localStorage.length
+		
+
+
+		    function dragStartHandler(e) {
+		        e.dataTransfer.setData("text/plain", e.target.id);		        
+		        return true;
+		    }
+
+		    function dragenterHandler(e) {
+		        e.preventDefault();
+		    }
+
+		    function dragoverHandler(e) {
+		        e.preventDefault();
+		    }
+
+		    function dropHandler(e) {
+		        e.preventDefault();
+		        e.stopPropagation();
+
+				// 拖曳的產品 id
+		        var elementID = e.dataTransfer.getData("text/plain");  //id	
+				console.log(elementID);	       
+		        var element = document.getElementById(elementID);  //object		 			 	
+
+		        var theTbody = document.getElementById("tbody2");
+		        var row = document.createElement("tr");
+		        
+				console.log(localStorage.getItem(elementID));
+				if(localStorage.getItem(elementID)){
+		            //alert('購物已包含此項目，請直接修改購物車品項數量 !');
+						console.log(elementID);
+						console.log("loc="+localStorage[elementID]);
+						console.log("get="+localStorage.getItem(elementID));
+						localStorage[elementID]=parseInt(localStorage[elementID])+1;
+						
+						var hasID = document.getElementById("id" + elementID);
+						hasID.value=parseInt(localStorage[elementID]);
+						for (var i = 0; i < shopping_list.length; i++) {
+							if (shopping_list[i][0] == elementID) {
+								// hasIDTotal = shopping_list[i][2] * (hasID.value - 1);
+								console.log("hasID="+hasID.value);
+								// let qty=parseInt(localStorage[elementID])
+								// console.log("qty="+qty);
+								console.log("subtotal="+subtotal)
+								hasIDTotal = shopping_list[i][2] ;
+								subtotal += hasIDTotal;
+								document.getElementById("idtotal").innerHTML = "小計 : " + subtotal;
+							}
+		            	}
+					
+										
+					
+		        } else {
+					let qty=localStorage[elementID]=1;
+		            for (var i = 0; i < shopping_list.length; i++) {
+		                if (shopping_list[i][0] == elementID) {
+
+		                    var cellID = document.createElement("td");
+		                    var txtID = document.createTextNode(no++);
+		                    cellID.appendChild(txtID);
+
+		                    var cellName = document.createElement("td");
+		                    var txtName = document.createTextNode(shopping_list[i][1]);
+		                    cellName.appendChild(txtName);
+
+		                    var cellPrice = document.createElement("td");
+		                    var txtPrice = document.createTextNode(shopping_list[i][2]);
+		                    cellPrice.appendChild(txtPrice);
+
+		                    var cellImage = document.createElement("td");
+		                    var eleImg = document.createElement("img");  //<img>
+		                    eleImg.setAttribute("src", element.src);     //<img src=...>
+		                    eleImg.setAttribute("class", "thumb");       //<img src=... class='thumb'>
+		                    cellImage.appendChild(eleImg);
+
+		                    var cellQtyTD = document.createElement("td");
+		                    var cellQty = document.createElement("input");
+		                    cellQty.setAttribute("type", "text");
+		                    cellQty.setAttribute("size", 3);
+		                    cellQty.setAttribute("value", qty);
+		                    cellQty.setAttribute("id", "id" + elementID);
+		                    cellQtyTD.appendChild(cellQty);
+		                    subtotal = parseInt(subtotal) + parseInt(txtPrice.nodeValue);
+		                }  //if     		
+		            }  //for
+
+		            row.appendChild(cellID);
+		            row.appendChild(cellImage);
+		            row.appendChild(cellName);
+		            row.appendChild(cellPrice);
+		            row.appendChild(cellQtyTD);
+
+		            theTbody.appendChild(row);
+		        }//else
+
+		        document.getElementById("idtotal").innerHTML = "小計 : " + subtotal;
+
+		    }
+
+		
+		</script>
+	</body>
+</html>
+
+

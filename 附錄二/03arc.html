@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>03arc.html</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let canvas = document.getElementById("myCanvas");
+            let context = canvas.getContext("2d");
+            //畫弧
+            // context.arc(150,100,75,1*Math.PI,0*Math.PI,false); //false 順時針
+            //context.stroke();
+            //畫圓
+            //context.arc(150,100,75,0,2*Math.PI,false);
+
+            //畫圓
+            context.beginPath();
+            context.arc(75, 75, 50, 0, 2 * Math.PI, false);
+            context.stroke();
+            context.closePath();
+
+            //畫弧
+            context.beginPath();
+            context.arc(75, 75, 35, 0, Math.PI, false);
+            context.stroke();
+            context.closePath();
+
+            //畫圓
+            context.beginPath();
+            context.arc(60, 65, 5, 0, 2 * Math.PI, false);
+            context.stroke();
+            context.closePath();
+
+            //畫圓
+            context.beginPath();
+            context.arc(90, 65, 5, 0, 2 * Math.PI, false);
+            context.stroke();
+            context.closePath();
+        });
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas"  width="400" height="300"></canvas>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>07Arraysort.html</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+       const numbers = [4, 2, 5, 1, 3];
+       numbers.sort();
+       console.log(numbers); // [1, 2, 3, 4, 5]
+
+    // const numAry = [35, 6, 78, 12, 54, 9];
+    // numAry.sort();
+    // console.log(numAry);
+
+    // 自定義排序 (Custom Sort)
+    // sort() 可以傳入函數參數 compareFunction，可以用來自訂排序的邏輯，陣列會根據 compareFunction 函數的回傳值來做排序依據。 
+    // compareFunction(a, b) 函數接受兩個參數，分別表示兩個元素值做比較，然後傳回一個數字，可能是正數、0 或負數：
+    // 例如 : function(50,100)
+    // compareFunction(a, b) 回傳值如果小於 0 (負數)，表示 a 排序在 b 前面
+    // compareFunction(a, b) 回傳值如果等於 0，表示 a 和 b 排序一樣位置不動
+    // compareFunction(a, b) 回傳值如果大於 0 (正數)，表示 b 排序在 a 前面
+    //ECMAscript 標準沒規範當 0 相等的時候，哪個元素排先哪個元素排後，每個瀏覽器的實做可能會不一樣。
+    
+    // numAry.sort(function (a, b) {
+    //     return a - b; 
+    // });
+    // console.log(numAry);
+   </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05Pchain.html</title>
+</head>
+<body>
+    <script>
+        var hello = new Promise(function(resolve, reject) {
+            resolve('Hello');
+        });
+
+        hello.then(function(str) {
+            return str + ' World';
+        }).then(function(str) {
+            return str;
+        }).then(function(str) {
+            console.log(str);
+        });
+
+    </script>
+</body>
+</html>

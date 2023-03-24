@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02rect.html</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            //取得camvas物件
+            let canvas = document.getElementById("myCanvas");
+            //產生CanvasRenderingContext2D物件
+            let context = canvas.getContext("2d");
+
+            context.shadowOffsetX = 5;  //陰影x軸相對位置(default 0)
+            context.shadowOffsetY = 5;  //陰影y軸相對位置(default 0)
+            context.shadowBlur = 4;     //陰影模糊度(default 0)
+            //陰影透明度(alpha),預設為 0,0完全透明，1不透明
+            context.shadowColor = "rgba(0,0,0,0.3)";
+            //context.shadowColor = "rgb(0,255,0)";
+
+
+            context.fillStyle = "#00ffff";  //填滿路徑的顏色
+            context.fillRect(0, 60, 150, 50);  //填滿矩形
+            context.strokeStyle = "#ff0000";   //設定路徑的顏色
+            context.strokeRect(0, 60, 150, 50);  //畫矩形
+
+            //context.fillStyle = "#0000ff";
+            //context.fillRect(0,0,150,50);
+
+            //context.clearRect(30,25,90,60);  //清除矩形
+
+        });
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+</body>
+</html>

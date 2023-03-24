@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>07fetch_GET.html</title>
+</head>
+<body>
+    <img alt="" id="picH1" /><img alt="" id="picH2" />:
+    <img alt="" id="picM1" /><img alt="" id="picM2" />:
+    <img alt="" id="picS1" /><img alt="" id="picS2" />
+    <div id="myDiv"></div>
+    <script>
+        const uri ="first.jsp?name=Jack&age=25";
+
+        fetch(uri, {method:'GET'})
+            .then(function(response) {                    
+                return response.text();  // 使用 text() 可以得到純文字 String
+            })
+            .then(function(result) {
+                console.log('Request successful', result);   // Hello Jack,You are 25 years old.
+                let myDiv=document.querySelector("#myDiv");
+                myDiv.innerHTML=result;
+            })
+            .catch(function(error) {
+                console.log('Request failed', error)
+            });
+
+        function setclock(){
+            //建立日期
+            let d=new Date();
+            //取得秒數，分割為兩位數
+            let s=d.getSeconds();
+            // alert(s);
+            //38 38/10=parseInt(3.8)=3,38%10=8
+            let s1=parseInt(s/10);
+            let s2=s%10;
+            //顯示圖片，對應秒數
+            document.getElementById("picS1").src="Images/"+s1+".gif";
+            document.getElementById("picS2").src="Images/"+s2+".gif";
+        }
+        setclock();
+        window.setInterval(setclock,1000);
+    </script>
+</body>
+</html>

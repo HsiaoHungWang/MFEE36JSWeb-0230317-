@@ -1,0 +1,1 @@
+document.write("MFEE36<br>JavaScript");

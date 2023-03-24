@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>08fetch_JSON.html</title>
+</head>
+
+<body>
+    <div id="myDiv"></div>
+    <script>
+        const uri = "emps.json";
+
+        fetch(uri, { method: 'GET' })
+            .then(res => {
+                return res.json();
+            }).then(result => {
+                //console.log(result); 
+                let myDiv = document.querySelector("#myDiv");
+                var str = "<ul>";
+
+                for (let value of result.employees) {
+                    //console.log(value)
+                    let name = value.name;
+                    let wy = value.workYears;
+                    let salary = value.salary;
+                    str += `<li>${name},${wy},${salary}</li>`
+                }
+                str += "</ul>";
+                myDiv.innerHTML = str;
+            });
+
+        // console.log(f);
+    </script>
+</body>
+
+</html>

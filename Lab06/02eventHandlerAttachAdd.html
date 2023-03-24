@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02eventHandlerAttachAdd.html</title>
+</head>
+<body>
+    <div id="iddiv1">
+		div1
+		<div id="iddiv2">div2</div>
+    </div>
+    <script>
+        //==============================================================
+        //階層式標籤，事件流程分三階段，
+        //事件捕獲(capture)階段==>處理目標階段==>事件氣泡(bubbling)階段
+        //==============================================================
+        document.addEventListener("click", clickDoc, true);  //事件繫結
+        document.getElementById("iddiv1").addEventListener("click", clickDiv1, true);
+        document.getElementById("iddiv2").addEventListener("click", clickDiv2, true);
+
+        function clickDoc() {
+            alert("document");
+        }
+
+        function clickDiv1() {
+            alert("div1");
+        }
+
+        function clickDiv2() {
+            alert("div2");
+        }
+    </script>
+</body>
+</html>

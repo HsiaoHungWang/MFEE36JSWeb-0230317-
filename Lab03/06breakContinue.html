@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05while.html</title>
+</head>
+
+<body>
+    <script>
+        //======break=====
+        while (true) {
+            let text = prompt("請輸入quit指令中斷程式：");
+            if (text == "quit") {
+                console.log("bye");
+                break;
+            }
+            console.log(text);
+        }
+
+        //======continue =====
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 != 0) {
+                continue;
+            }
+            console.log(i);
+        }
+    </script>
+</body>
+
+</html>

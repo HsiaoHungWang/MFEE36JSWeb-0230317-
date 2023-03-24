@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>11imageObject.html</title>
+    <link rel="icon" href="images/ispan.png" type="image/x-icon" />
+</head>
+<body>
+    <div style="float:left;width:200px;height:343px;margin-top:20px;">
+        <img id="imgMap" alt="" src="images/map00.gif"  usemap="#FPMap0"/>
+            <map id="FPMap0" name="FPMap0">
+                <area  id="idTaipei" coords="136,21,144,13,151,29,145,38,136,21"  shape="poly" />
+                <area  id="idTaoyuan" coords="95,38,120,22,132,34,125,45,138,64,128,78,95,37"  shape="poly" />
+                <area  id="idTaichung" coords="46,113,58,89,87,104,120,91,134,100,122,113,81,122,70,134,45,112,45,112"  shape="poly" />
+                <area  id="idKaohsiung" coords="18,241,39,242,86,185,98,201,76,243,72,250,46,251,39,283,25,259,18,240"  shape="poly" />
+            </map>
+    </div>
+    <div id="mapdiv" style="float:left;width:auto;height:auto;"></div>
+    
+    <script>
+        //=============================================================
+        //1. 使用<area>物件的id
+        //2. 使用 document.getElementsByTagName("area")取得所有area元素
+        //3. 使用 document.querySelectorAll("area")取得所有area元素(slide 93)  
+        //=============================================================
+        document.querySelector("#idTaipei").addEventListener("mouseover",mouseOver);//事件繫結
+        document.querySelector("#idTaipei").addEventListener("mouseout",mouseOut);
+        document.querySelector("#idTaipei").addEventListener("click",Click);           
+
+        function mouseOver() {            
+            document.images[0].src = "images/MapTaipei.gif";          
+        }
+
+
+        function mouseOut() {            
+            document.images[0].src = "images/map00.gif";
+        }
+
+
+        function Click() {            
+            document.getElementById("mapdiv").innerHTML = "<img src='images/Taipei.gif'/>";
+        }
+    </script>
+</body>
+</html>
