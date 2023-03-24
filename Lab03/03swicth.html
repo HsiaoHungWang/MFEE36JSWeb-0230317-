@@ -34,8 +34,25 @@
         }
         console.log(`今天是星期${aDay}`);
 
+        //TODO：印出今天是weekend還是weekday
         //1-5 => weekday
         //0、6 => weekend
+        switch (theDay) {
+            case 0:
+            case 6:
+                aDay = "weekend";
+                break;
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                aDay = "weekday";
+                break;
+            default:
+                aDay = "?";
+        }
+        console.log(`今天是${aDay}`);
     </script>
 </body>
 
