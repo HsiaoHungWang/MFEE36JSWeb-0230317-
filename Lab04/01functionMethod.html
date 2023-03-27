@@ -48,6 +48,7 @@
         //預設參數值(ES6)
 
         //其餘運算子 
+        //函數宣告式
         function sumAll(a,b,...ab){
             // console.log(ab.length); //取得陣列裡面有多少筆資料
             // console.log(ab[0]);  //陣列中的資料要讀出來是透過索引值
@@ -64,7 +65,16 @@
 
         //==========定義函數==================
         //方法二暱名函數
-
+        //函數表達式
+        let sumAbc = function(...ab){
+            //console.log("函數表達式");
+            let sum = 0;
+            for(let i=0, max=ab.length;i<max;i++){
+                        sum += ab[i]; //sum = sum + ab[i]
+                    }
+                    return sum;
+        }
+        console.log(sumAbc(3,4,5));
         
 
         //==========定義函數==================
