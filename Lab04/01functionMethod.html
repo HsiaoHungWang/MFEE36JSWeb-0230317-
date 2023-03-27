@@ -33,12 +33,12 @@
     //      result = sayHi("Tom");
     //     console.log(result);
         // result = sayHi("Tom", 28, "Tom@company.com");
-        let result = sayHi();
-        console.log(result);
-        result = sayHi(25,"Tom");
-        console.log(result);
-        result = sayHi(30);
-        console.log(result);
+        // let result = sayHi();
+        // console.log(result);
+        // result = sayHi(25,"Tom");
+        // console.log(result);
+        // result = sayHi(30);
+        // console.log(result);
 
         //JavaScript沒有規定function的參數及呼叫function時給予的參數數量必須要一致
         //少掉的參數為undefined，而多的參數會被忽略
@@ -48,6 +48,18 @@
         //預設參數值(ES6)
 
         //其餘運算子 
+        function sumAll(a,b,...ab){
+            // console.log(ab.length); //取得陣列裡面有多少筆資料
+            // console.log(ab[0]);  //陣列中的資料要讀出來是透過索引值
+            // console.log(ab[1]);
+            let sum = a + b;
+            for(let i=0, max=ab.length;i<max;i++){
+                sum += ab[i]; //sum = sum + ab[i]
+            }
+          return sum;
+        }
+        console.log(sumAll(1,2));     //3
+        console.log(sumAll(1,2,3,4)); //10
         
 
         //==========定義函數==================
