@@ -1,37 +1,39 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>01functionMethod.html</title>
 </head>
+
 <body>
     <script>
         //==========定義函數==================
         //方法一函數宣告，定義帶參數的函數
 
-        function sayHi(age, name="Guest"){
-            // console.log(arguments);
-            // console.log(arguments[2]);
-            //TODO name 沒有資料讓回傳guest
-            
-        //    if(!name){ //not false => true
-        //       name = "Guest";
-        //    }
+        // function sayHi(age, name="Guest"){
+        //     // console.log(arguments);
+        //     // console.log(arguments[2]);
+        //     //TODO name 沒有資料讓回傳guest
 
-        //shortcut  && ||
-        //name = name || "Guest";
-           
-            return `Hello ${name}, You are ${age} years old.`;
-        }
+        // //    if(!name){ //not false => true
+        // //       name = "Guest";
+        // //    }
+
+        // //shortcut  && ||
+        // //name = name || "Guest";
+
+        //     return `Hello ${name}, You are ${age} years old.`;
+        // }
 
 
         //==========函數呼叫==================
         //呼叫帶參數的函數
 
-    //   let result = sayHi("Tom", 30);
-    //     console.log(result);
-    //      result = sayHi("Tom");
-    //     console.log(result);
+        //   let result = sayHi("Tom", 30);
+        //     console.log(result);
+        //      result = sayHi("Tom");
+        //     console.log(result);
         // result = sayHi("Tom", 28, "Tom@company.com");
         // let result = sayHi();
         // console.log(result);
@@ -49,49 +51,72 @@
 
         //其餘運算子 
         //函數宣告式
-        function sumAll(a,b,...ab){
+        function sumAll(a, b, ...ab) {
             // console.log(ab.length); //取得陣列裡面有多少筆資料
             // console.log(ab[0]);  //陣列中的資料要讀出來是透過索引值
             // console.log(ab[1]);
             let sum = a + b;
-            for(let i=0, max=ab.length;i<max;i++){
+            for (let i = 0, max = ab.length; i < max; i++) {
                 sum += ab[i]; //sum = sum + ab[i]
             }
-          return sum;
+            return sum;
         }
-        console.log(sumAll(1,2));     //3
-        console.log(sumAll(1,2,3,4)); //10
-        
+        console.log(sumAll(1, 2));     //3
+        console.log(sumAll(1, 2, 3, 4)); //10
+
 
         //==========定義函數==================
         //方法二暱名函數
         //函數表達式
-        let sumAbc = function(...ab){
+        let sumAbc = function (...ab) {
             //console.log("函數表達式");
             let sum = 0;
-            for(let i=0, max=ab.length;i<max;i++){
-                        sum += ab[i]; //sum = sum + ab[i]
-                    }
-                    return sum;
+            for (let i = 0, max = ab.length; i < max; i++) {
+                sum += ab[i]; //sum = sum + ab[i]
+            }
+            return sum;
         }
-        console.log(sumAbc(3,4,5));
-        
+        console.log(sumAbc(3, 4, 5));
+
 
         //==========定義函數==================
         //方法三箭頭函數(arrow function)
+        let sumXyz = (...ab) => {
+            //console.log("函數表達式");
+            let sum = 0;
+            for (let i = 0, max = ab.length; i < max; i++) {
+                sum += ab[i]; //sum = sum + ab[i]
+            }
+            return sum;
+        }
+        console.log(sumXyz(5, 6, 7));
+
+
+
 
 
         //函數沒有參數
-        
-        //如果statement 只有一行，return 和 {} 可省略
-
-
+        // let sayHi = ()=>{
+        //     console.log("Hello Arrow Function!!");
+        // }
+        // sayHi();
         //只有一個參數，()可省略
-    
-    
+        // let sayHi = name => {
+        //     return `Hello ${name}!!`;
+        // }
+        // console.log(sayHi("Steven"));
+        //如果statement 只有一行，return 和 {} 可省略
+        let sayHi = name => `Hello ${name}!!`;
+
+        console.log(sayHi("Jack"));
+
+
+
+
         //===========IIFE=====================
 
-        
+
     </script>
 </body>
+
 </html>
