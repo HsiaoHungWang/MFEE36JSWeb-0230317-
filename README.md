@@ -46,3 +46,4 @@ let guessNum = Math.floor(num * 100); //取整數
 7. 請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏溫度
 8. Lab05/03.checkPassword.html 的密碼檢查
 9. 使用string物件檢查電子郵件中要有 @ . 以及 @ 不能重複
+10. 讓使用者輸入生日計算幾歲了
