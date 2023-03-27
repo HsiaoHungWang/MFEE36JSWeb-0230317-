@@ -12,30 +12,50 @@
     <input type="text" id="text1">
     <input type="text" id="text2">
     <input type="button" value="+" id="button1">
-    <div id="div1"></div>
+    <div id="div1">30</div>
+    &nbsp;&nbsp;*<br>
+    ***<br>
+    *****
+    *******
+
+    <pre>
+        *
+       ***
+      *****
+    </pre>
     <script>
         //找到要控制的對象
-        // const theDiv = document.getElementById("div1");
-        // const t1 = document.getElementById("text1");
-        // const t2 = document.getElementById("text2");
-        // const btn = document.getElementById("button1");
+        const theDiv = document.getElementById("div1");
+        const t1 = document.getElementById("text1");
+        const t2 = document.getElementById("text2");
+        const btn = document.getElementById("button1");
 
         // //設定事件 => 在使用者的甚麼操作行為下，要做甚麼事?
-        // btn.addEventListener("click", function () {
+        btn.addEventListener("click", function () {
 
-        //     console.log(typeof (Number(t1.value)));
-        //     const sum = Number(t1.value) + Number(t2.value);
+            console.log(typeof (Number(t1.value)));
+            const sum = Number(t1.value) + Number(t2.value);
+            if (sum > 100) {
+                theDiv.innerHTML = `<p style="background-color:red">${sum}</p>`;
+            } else {
+                theDiv.innerHTML = sum;
+            }
 
-        //     theDiv.innerHTML = sum;
-        // })
+        })
         // //input、blur
         // // theText.addEventListener("blur", function () {
         // //     //做甚麼?
         // //     theDiv.innerHTML = theText.value;
         // // })
 
-//         console.log(typeof (12)); //NaN undefined null
-//    12 + (12 - 10)
+        //         console.log(typeof (12)); //NaN undefined null
+        //    12 + (12 - 10)
+        // let num = Math.random()
+        // // console.log(num); //0-1之間的值
+        // //  console.log(num * 100); //0-1之間的值
+        // // //Math.floor() 無條件捨去
+        // let guessNum = Math.floor(num * 100); //取整數
+        // console.log(guessNum)
 
     </script>
 </body>

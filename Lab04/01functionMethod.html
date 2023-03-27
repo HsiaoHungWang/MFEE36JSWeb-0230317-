@@ -9,11 +9,25 @@
         //==========定義函數==================
         //方法一函數宣告，定義帶參數的函數
 
+        function sayHi(name, age){
+            // console.log(arguments);
+            // console.log(arguments[2]);
+            //TODO name 沒有資料讓回傳guest
+           
+            return `Hello ${name}, You are ${age} years old.`;
+        }
+
 
         //==========函數呼叫==================
         //呼叫帶參數的函數
 
-
+    //   let result = sayHi("Tom", 30);
+    //     console.log(result);
+    //      result = sayHi("Tom");
+    //     console.log(result);
+        // result = sayHi("Tom", 28, "Tom@company.com");
+        let result = sayHi();
+        console.log(result);
 
         //JavaScript沒有規定function的參數及呼叫function時給予的參數數量必須要一致
         //少掉的參數為undefined，而多的參數會被忽略
