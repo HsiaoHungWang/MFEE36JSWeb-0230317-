@@ -1,20 +1,66 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>02varScope.html</title>
 </head>
+
 <body>
     <script>
-            //廣域(全域)變數
-    
-    
-            //函數宣告定義
-    
-    
-            //呼叫函數
 
+        //var vs let
+        //1. var 變數可以重複宣告，let 變數不能重複宣告
+        //2. var 宣告的變數 hoisting 變數提升，let 宣告的變數沒有? TDZ
+        //3. var 函數作用域funcatoin，let是區塊作用域{ }
+
+
+        //console.log(age);  //Uncaught ReferenceError: age is not defined
+
+
+        //console.log(age); //undefined
+        let age = 20;
+
+
+        // console.log(age); // Uncaught ReferenceError: Cannot access 'age' before initialization
+        // let age = 23;
+
+        //廣域(全域)變數
+        let email = "Tom@comapany.com";
+
+        //函數宣告定義
+        function a() {
+            // let age = 30;  //區域變數
+            //address = "aaaaaaaaaaaa";  //廣域變數
+            //console.log(email);
+            if (true) {
+                var aa = "aaaaaaaa";
+                let bb = "bbbbbbbb";
+            }
+            console.log(aa);  //aaaaaaa
+            // console.log(bb);  //Uncaught ReferenceError: bb is not defined
+            console.log(email);
+            console.log(age); //20
+            //02varScope.html:43 Uncaught ReferenceError: Cannot access 'age' before initialization
+            let age = 25;
+        }
+
+        // function b() {
+        //     let age2;
+        //     console.log(age2)
+        //     age2 = 25; //區域變數
+        //     console.log(age2)
+        //     console.log(email);
+        //     // console.log(age1);  //Uncaught ReferenceError: age1 is not defined
+        // }
+        // console.log(email);
+        a();
+        // b();
+        //呼叫函數
+        console.log(age);
+        //console.log(address); //aaaaaaaaaa
 
     </script>
 </body>
+
 </html>
