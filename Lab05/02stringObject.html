@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>02stringObject.html</title>
 </head>
+
 <body>
     <div id="info"></div>
+    <input type="text" id="text1" style="text-transform:uppercase;">
     <script>
-        let str = "java script";  //字串變數        
-        //字串物件
+        //TODO 讓使用者輸入小寫，顯示大寫
 
-        console.log("strObj.charAt(3)=");
-        console.log("strObj.charCodeAt(3)=");
-        console.log("strObj.indexOf('a')=");
-        console.log("strObj.lastIndexOf('a')=");
-        console.log("strObj.lastIndexOf('@')=");
-        console.log("strObj.substr(5,3)=");
-        console.log("strObj.substr(5)=");
-        console.log("strObj.substring(5,8)=");
-        console.log("strObj.split(' ')=");
-        console.log("strObj.toUpperCase()=");
+        //找到要控制的對象  getElementById
+        //甚麼時候去做  事件 > 使用者對網頁的操作的行為 click、input、blur、change、keyup、keydown...
+        //做甚麼事 
+        //讀出資料 > 轉成大寫 > 寫回去
+        // const txt = document.getElementById("text1");
+        // txt.addEventListener("input", () => {
+        //     txt.value = txt.value.toUpperCase();
+        // })
+
+
+        let str = "JavaScript";  //字串變數        
+        //字串物件
+        console.log(str.length); //10
+        console.log("strObj.charAt(3)=" + str.charAt(3));       //a
+        console.log("strObj.charCodeAt(3)=" + str.charCodeAt(3)); //97
+        console.log("strObj.indexOf('a')=" + str.indexOf("a")); //1
+        console.log("strObj.lastIndexOf('a')=" + str.lastIndexOf("a")); //3
+        console.log("strObj.lastIndexOf('@')=" + str.lastIndexOf("@")); //-1
+        console.log("strObj.substr(5,3)=" + str.substr(5, 3)); //cri
+        console.log("strObj.substr(5)=" + str.substr(5)); //cript
+        console.log("strObj.substring(5,8)=" + str.substring(5, 8));  //cri
+        let strObj = "write less do more";
+        let strArray = strObj.split(" ");
+        console.log(strArray[0]);
+        console.log(strArray[1]);
+        console.log(strArray[2]);
+        console.log(strArray[3]);
+        // console.log("strObj.split(' ')=" + strObj.split(" "));
+        console.log("strObj.toUpperCase()=" + str.toUpperCase());
     </script>
 </body>
+
 </html>
