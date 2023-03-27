@@ -41,3 +41,6 @@ let guessNum = Math.floor(num * 100); //取整數
 
 5. 請畫出九九乘法表
  ![久久乘法表](https://imgur.com/GajW3ud.png)
+
+6. 以上的作業請改用 function 來完成
+7. 請設計一個 function，傳入攝氏溫度可以轉成華氏溫度，傳入華氏溫度可以轉成攝氏的問溫度
