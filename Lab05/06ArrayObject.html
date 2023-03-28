@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>06ArrayObject.html</title>
 </head>
+
 <body>
     <script>
         //Array 物件
+        //[0:"apple",1:"banana"....]
+        let datas = ["apple", "banana", "grape"];
+        //console.log(datas[1]); //banana
+        //ES5
+        // for (let idx in datas) {
+        //     //會從陣列取index放進前面的變數中
+        //     console.log(idx);  //0,1,2 索引值 index
+        //     console.log(datas[idx]); //apple、banana...
+        // }
+
+        //ES6
+        // for (let item of datas) {
+        //     //會從陣列取值放進前面的變數中
+        //     console.log(item);  //apple、banana...
+
+        // }
+        datas.forEach((item) => {
+            console.log(item);
+        })
+        datas.forEach((item, idx) => {
+            console.log(item);
+            console.log(idx);
+        })
+        datas.forEach((item, idx, arr) => {
+            console.log(item);
+            console.log(idx);
+            console.log(arr);
+        })
 
 
-        
         //let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
         // for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
         //     for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
@@ -18,7 +47,42 @@
         // }
 
         //Array 方法
-        
+        const numbers = [1, 2, 3, 4, 5];
+        // numbers.forEach(function (item, index, arr) {
+        //     arr[index] = item * 10;
+        // });
+        // console.log(numbers);
+
+        const arr1 = ["a", "b", "c", "d", "e"];
+        console.log(arr1);
+        //arr1.unshift("f"); //push("f")
+        // console.log(arr1.pop()); //e
+        // console.log(arr1.shift()); //a
+        // console.log(arr1);
+
+        //splice()
+        //  console.log(arr1.splice(2, 2)); //c d
+        //  console.log(arr1); //a b e
+        // console.log(arr1.splice(2, 2, "x", "y")); //c d
+        // console.log(arr1); //a b x y e
+
+        //sort()
+        let br = [35, 6, 78, 12, 54, 9];
+        let br1 = ["c", "x", "a", "m"];
+        console.log(br);
+        // br.sort();        
+        br.sort((a, b) => b - a);
+        //a(6) - b(12) = -6
+        //a(35) - b(6) = +29
+
+        console.log(br);
+        br1.sort();
+        console.log(br1);
+
+
+
+
     </script>
 </body>
+
 </html>
