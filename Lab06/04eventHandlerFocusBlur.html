@@ -1,40 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>04eventHandlerFocusBlur.html</title>
 </head>
-<body>    
-    <label>name:</label><input type="text" id="idName" />    
+
+<body>
+    <label>name:</label><input type="text" id="idName" />
     <br />
     <label>password:</label><input type="password" id="idPwd" />
     <hr />
     <label>縣市:</label>
     <select id="idaddr">
         <option value="1" selected>台北市</option>
-        <option value="2" >新北市</option>
+        <option value="2">新北市</option>
         <option value="3">桃園市</option>
     </select>
-    <script>        
-        document.getElementById("idName").addEventListener("blur",blur);  //事件繫結，焦點離開
-        document.getElementById("idName").addEventListener("focus",focus);  //事件繫結，取得焦點
-        document.getElementById("idName").addEventListener("change",change);  //事件繫結，改變內容            
-        document.getElementById("idaddr").addEventListener("change",Addrchange);
+    <script>
+        const txtName = document.getElementById("idName");
+        const sel = document.getElementById("idaddr");
+        txtName.addEventListener("blur", blur);  //事件繫結，焦點離開
+        txtName.addEventListener("focus", focus);  //事件繫結，取得焦點
+        txtName.addEventListener("change", change);  //事件繫結，改變內容            
+        sel.addEventListener("change", Addrchange);
 
         function blur() {
-          
+            console.log("blur" + txtName.value);
+            txtName.style.backgroundColor = '';
         }
 
-        function focus() {           
-            
+        function focus() {
+            console.log("focus");
+            txtName.style.backgroundColor = 'silver';
         }
 
         function change() {
-           
-        }  
+            console.log('change');
+        }
         function Addrchange() {
-           
+            // console.log('change' + sel.value);
+            // console.log('change' + sel.textContent);
+            //option => options集合
+            const i = sel.selectedIndex; //選到了第幾個option
+            console.log(i);
+            console.log(sel.options[i]);
+            console.log(sel.options[i].value);
+            console.log(sel.options[i].text);
         }       
     </script>
 </body>
+
 </html>

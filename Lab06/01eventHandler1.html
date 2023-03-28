@@ -13,17 +13,27 @@
     <input type="button" id="button3" value="事件3">
 
     <!-- JavaScript屬性事件處理程序 -->
-
+    <div id="div1" style="width:400px;height:200px;background-color: silver;">
+        <p id="p1" style="background-color: green;">
+            aaaaaaaaaaaaaaaaaaaaa
+        </p>
+    </div>
 
     <!-- W3C DOM 事件處理程序 -->
     <script>
-        function sayHi() {
+        function sayHi(evt) {
+            console.log(evt);  //evt就是事件物件
             alert("Hi!!");
         }
 
         document.getElementById("button2").onclick = sayHi;
         document.getElementById("button3").addEventListener("click", sayHi);
-
+        document.getElementById("div1").addEventListener("click", () => {
+            alert("div1");
+        }, true);
+        document.getElementById("p1").addEventListener("click", () => {
+            alert("p1");
+        }, true);
     </script>
 </body>
 
