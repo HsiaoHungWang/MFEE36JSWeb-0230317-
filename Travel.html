@@ -9,16 +9,26 @@
 </head>
 
 <body>
+    <div id="div1">
+
+    </div>
     <script src="datas/travel.js"></script>
     <script>
         // console.log(datas);
         //console.log(datas.data[0].景點中文名稱);//
         // console.log(datas.data[0].景點特色精簡版文字簡述[中文]);
+        let str = "";
         datas.infos.forEach(element => {
-            const { Name, Toldescribe } = element;
-            console.log(Name);
-            console.log(Toldescribe.substr(0, 100) + "...");
+            const { Name, Toldescribe, TYWebsite } = element;
+            // console.log(Name);
+            // console.log(Toldescribe.substr(0, 100) + "...");
+            str += `
+               <h3>
+                <a href=${TYWebsite}>${Name}</a></h3>
+               <p>${Toldescribe.substr(0, 100)}...</p>
+            `
         });
+        document.getElementById("div1").innerHTML = str;
     </script>
 </body>
 
