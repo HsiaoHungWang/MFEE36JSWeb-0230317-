@@ -31,10 +31,9 @@
         // let emps = [{},{},{}];
         // let obj = {emps:[{},{},{}]}
 
-        let emps = [{ name: "Jack", age: 20 },
-        { name: "Mary", age: 29 },
-        { name: "Steve", age: 24 }];
-
+        let emps = '[{ "name": "Jack", "age": 20 },{ "name": "Mary", "age": 29 },{ "name": "Steve", "age": 24 }]';
+        console.log(emps);
+        console.log(JSON.parse(emps));
         //emps - array
         //emps[1] - object
         //emps[1].name - Mary
@@ -43,12 +42,12 @@
         //for...in...  
         //for(;;) 
 
-        emps.forEach((emp) => {
-            //emp =>{ name: "Jack", age: 20 }
-            const { name, age } = emp;
-            console.log(name);
-            console.log(age);
-        })
+        // emps.forEach((emp) => {
+        //     //emp =>{ name: "Jack", age: 20 }
+        //     const { name, age } = emp;
+        //     console.log(name);
+        //     console.log(age);
+        // })
 
 
         var data = {
@@ -58,6 +57,8 @@
                 { "name": "Mary", "workYears": 7, "salary": 65000 }
             ]
         };
+        console.log(data);
+        console.log(JSON.stringify(data));
 
         //data - object       
         //data.emps - array

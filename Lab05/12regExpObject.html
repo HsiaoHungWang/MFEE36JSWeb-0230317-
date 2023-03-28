@@ -1,33 +1,45 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>12regExpObject.html</title>
 </head>
+
 <body>
     <label>Email:</label><input type="text" id="idEmail" />
     <br />
     <input type="button" value="checkEmail" onclick="chkEmail();" />
     <script>
-        /*
-            let str="Is this all there is?";
-            let re=new RegExp("is","gi");
-            console.log(str.match(re));	
-        */
-            function chkEmail() {
-                //取得元素值
-                let theEmail = document.getElementById("idEmail").value;
-                //建立RegExp物件語法 2
-                let re = /^.+@.+\..{2,3}$/;
-                //建立RegExp物件語法 1
-    
-    
-                if (re.test(theEmail))
-                    window.alert("successful");
-                else
-                    window.alert("failure");
-    
-            }
-        </script>
+
+        // let str = "Is this all there is?";
+        // let re = new RegExp("is", "gi");
+        // console.log(str.match(re));
+
+        //a123456789
+        let re = /^[a-zA-Z][1-2]\d{8}$/;
+        // console.log(re.test("a123456789")); //true
+        // console.log(re.test("a323456789")); //false
+        // console.log(re.test("a32345678")); //false
+        //0911-222-333
+        let re1 = /^09\d{2}-\d{3}-\d{3}$/;
+        console.log(re1.test("0911-222-333")); //true
+        console.log(re1.test("0923-122-22")); //false
+
+        function chkEmail() {
+            //取得元素值
+            let theEmail = document.getElementById("idEmail").value;
+            //建立RegExp物件語法 2
+            let re = /^.+@.+\..{2,3}$/;
+            //建立RegExp物件語法 1
+
+            if (re.test(theEmail))
+                window.alert("successful");
+            else
+                window.alert("failure");
+
+        }
+    </script>
 </body>
+
 </html>
