@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <title>05Object.html</title>
 </head>
+
 <body>
     <div id="myDiv"></div>
     <script>
-    
-    
 
-    //for..in
 
-    
-    </script>        
+
+        //for..in
+        //key:value
+        let person = { "name": "Tom", "age": 30, "email": "Tom@company.com" };
+        // console.log(person.name); //物件.屬性
+        for (let key in person) {
+            //會從物件取key(property)放進前面的變數中
+            console.log(key); //name、age
+            console.log(person[key]); //透過key取value
+        }
+    </script>
 </body>
+
 </html>

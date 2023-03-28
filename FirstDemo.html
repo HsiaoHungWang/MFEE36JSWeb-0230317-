@@ -23,13 +23,17 @@
        ***
       *****
     </pre>
+    <script src="scripts/Validation.js"></script>
+
     <script>
+        import checkLength from 'scripts/validation.js';
         //找到要控制的對象
         const theDiv = document.getElementById("div1");
         const t1 = document.getElementById("text1");
         const t2 = document.getElementById("text2");
         const btn = document.getElementById("button1");
 
+        checkNumber();
         // //設定事件 => 在使用者的甚麼操作行為下，要做甚麼事?
         btn.addEventListener("click", function () {
 
