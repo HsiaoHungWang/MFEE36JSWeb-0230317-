@@ -27,7 +27,39 @@
             console.log(evt.type); //click
             console.log(evt.button); //0
         })
+        document.getElementById("div1").addEventListener("mousedown", evt => {
+            console.log(evt);  //{}
+            console.log(evt.type); //mousedown
+            switch (evt.button) {
+                case 0:
+                    alert("左鍵");
+                    break;
+                case 1:
+                    alert("中間鍵");
+                    break;
+                case 2:
+                    alert("右鍵");
+                    break;
+            } //0
+        })
 
+        document.getElementById("text1").addEventListener("keypress", evt => {
+            console.log(evt);  //{}
+            console.log(evt.type); //click
+            //console.log(evt.button); //0
+            console.log(evt.key); //a
+            console.log(evt.which);// a-z 97-122  0-9 48-57 A-Z 65-90
+            console.log(evt.altKey);
+        })
+
+        document.getElementById("text2").addEventListener("keydown", evt => {
+            console.log(evt);  //{}
+            console.log(evt.type); //click
+            //console.log(evt.button); //0
+            console.log(evt.key); //a
+            console.log(evt.which);// a-z 97-122  0-9 48-57 A-Z 65-90
+            console.log(evt.altKey);
+        })
 
     </script>
 </body>
