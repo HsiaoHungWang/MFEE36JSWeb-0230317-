@@ -11,6 +11,9 @@
             width: 200px;
             height: 200px;
             background-color: lightgray;
+            position: absolute;
+            top: 100px;
+            left: 300px;
         }
     </style>
 </head>
@@ -22,25 +25,35 @@
     <input type="button" id="button1" value="click">
     <div id="div1"> </div>
     <script>
+        const divNote = document.getElementById("div1");
         document.getElementById("button1").addEventListener("click", evt => {
             console.log(evt);  //{}
+            console.log(evt.target);
+            console.log(evt.currentTarget);
             console.log(evt.type); //click
             console.log(evt.button); //0
         })
-        document.getElementById("div1").addEventListener("mousedown", evt => {
-            console.log(evt);  //{}
-            console.log(evt.type); //mousedown
-            switch (evt.button) {
-                case 0:
-                    alert("左鍵");
-                    break;
-                case 1:
-                    alert("中間鍵");
-                    break;
-                case 2:
-                    alert("右鍵");
-                    break;
-            } //0
+        divNote.addEventListener("mousedown", evt => {
+            // console.log(evt);  //{}
+            // console.log(evt.type); //mousedown
+            // switch (evt.button) {
+            //     case 0:
+            //         alert("左鍵");
+            //         break;
+            //     case 1:
+            //         alert("中間鍵");
+            //         break;
+            //     case 2:
+            //         alert("右鍵");
+            //         break;
+            // } //0
+            console.log(`screenX:${evt.screenX}, screenY:${evt.screenY}`)
+            console.log(`clientX:${evt.clientX}, clientY:${evt.clientY}`)
+            console.log(`offsetX:${evt.offsetX}, offsetY:${evt.offsetY}`)
+        })
+
+        divNote.addEventListener("mousemove", evt => {
+            console.log(`clientX:${evt.clientX}, clientY:${evt.clientY}`)
         })
 
         document.getElementById("text1").addEventListener("keypress", evt => {
