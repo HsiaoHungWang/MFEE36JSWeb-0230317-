@@ -7,12 +7,14 @@
 </head>
 
 <body>
-    <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img
-        alt="" src="WinImages/3.gif" />
+    <!-- <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img
+        alt="" src="WinImages/3.gif" /> -->
+
+
+    <img alt="" id="picH1" /><img alt="" id="picH2" />:<img alt="" id="picM1" /><img alt="" id="picM2" />:<img alt=""
+        id="picS1" /><img alt="" id="picS2" />
+
     <hr />
-    <!--
-    <img alt="" id="picH1" /><img alt="" id="picH2" />:<img alt="" id="picM1" /><img alt="" id="picM2" />:<img alt="" id="picS1" /><img alt="" id="picS2" />
-    -->
     <input type="button" id="button1" value="Start">
     <div id="div1">00:00:00</div>
 
@@ -46,7 +48,12 @@
         //找到要控制的對象
         const btn = document.getElementById("button1");
         const divClock = document.getElementById("div1");
-
+        const ch1 = document.getElementById("picH1");
+        const ch2 = document.getElementById("picH2");
+        const cm1 = document.getElementById("picM1");
+        const cm2 = document.getElementById("picM2");
+        const cs1 = document.getElementById("picS1");
+        const cs2 = document.getElementById("picS2");
 
         //在甚麼使用者的行為下  事件
         let timer = null;
@@ -61,7 +68,15 @@
                     const hours = today.getHours();
                     const mins = today.getMinutes();
                     const secs = today.getSeconds();
+                    //顯示在div中
                     divClock.textContent = `${hours}:${mins}:${secs}`;
+                    //用圖片顯示
+                    ch1.src = `WinImages/${parseInt(hours / 10)}.gif`;
+                    ch2.src = `WinImages/${hours % 10}.gif`;
+                    cm1.src = `WinImages/${parseInt(mins / 10)}.gif`;
+                    cm2.src = `WinImages/${mins % 10}.gif`;
+                    cs1.src = `WinImages/${parseInt(secs / 10)}.gif`;
+                    cs2.src = `WinImages/${secs % 10}.gif`;
                 }, 1000);
             } else {
                 btn.value = "Start";
