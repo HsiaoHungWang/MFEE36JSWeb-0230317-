@@ -8,14 +8,17 @@
     <title>Document</title>
     <style>
         div {
-            width: 400px;
-            height: 400px;
+            width: 200px;
+            height: 200px;
             background-color: lightgray;
         }
     </style>
 </head>
 
 <body>
+    <input type="text" id="text1" placeholder="keypress">
+    <input type="text" id="text2" placeholder="keydown">
+    <input type="text" id="text3" placeholder="keyup">
     <input type="button" id="button1" value="click">
     <div id="div1"> </div>
     <script>
@@ -24,6 +27,7 @@
             console.log(evt.type); //click
             console.log(evt.button); //0
         })
+
 
     </script>
 </body>
