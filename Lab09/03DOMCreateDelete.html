@@ -9,17 +9,21 @@
 <body>
     <input type="button" id="CEle" value="CreateElement">
     <input type="button" id="REle" value="RemoveElement">
-    <div id="iddiv">div
-
-
-    </div>
+    <div id="iddiv"></div>
 
     <script>
         document.querySelector("#CEle").addEventListener("click", CreateElement)
         document.querySelector("#REle").addEventListener("click", RemoveElement)
         const theDiv = document.querySelector('#iddiv');
         function RemoveElement() {
+            // //刪除節點
+            // const theNode = document.querySelector('h3');
+            // theNode.parentNode.removeChild(theNode);
 
+            //刪除所有子節點
+            while (theDiv.hasChildNodes()) {
+                theDiv.removeChild(theDiv.lastChild);
+            }
         }
         function CreateElement() {
             //建立元素節點
