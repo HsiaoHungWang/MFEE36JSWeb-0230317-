@@ -14,7 +14,7 @@
 <body>
     <h1 id="myH">Hello DOM</h1>
     <p>I am a JavaScript</p>
-    <ul>
+    <ul id="ul1">
         <li>aaaaa</li>
         <li>bbbbb</li>
         <li>ccccc</li>
@@ -31,15 +31,25 @@
         //nodeType 讀取節點類型
         //*****************************************
 
-        const theNode = document.getElementById("myH");
-        //元素節點
-        console.log(theNode.nodeType);  //1
-        console.log(theNode.nodeName); //H1
-        console.log(theNode.nodeValue); //null
-        //文字節點
-        console.log(theNode.firstChild.nodeType);  //3
-        console.log(theNode.lastChild.nodeName); //#text
-        console.log(theNode.childNodes[0].nodeValue); //Hello DOM
+        // const theNode = document.getElementById("myH");
+        // const theUl = document.getElementById("ul1");
+        // const liNode = theUl.childNodes[7];
+
+        // console.log(liNode.firstChild.nodeValue); //ddddd
+        // console.log(liNode.previousSibling.previousSibling.firstChild.nodeValue); //ccccc
+        // console.log(liNode.nextSibling.nextSibling.firstChild.nodeValue); //eeeee
+
+        // console.log(theUl.childNodes[1].nodeType); //1
+        // console.log(theUl.childNodes[1].nodeName); //LI        
+        // console.log(theUl.childNodes[1].firstChild.nodeValue); //aaaaa
+        // //元素節點
+        // console.log(theNode.nodeType);  //1
+        // console.log(theNode.nodeName); //H1
+        // console.log(theNode.nodeValue); //null
+        // //文字節點
+        // console.log(theNode.firstChild.nodeType);  //3
+        // console.log(theNode.lastChild.nodeName); //#text
+        // console.log(theNode.childNodes[0].nodeValue); //Hello DOM
 
         // alert(document.nodeType);  //9
         // alert(document.nodeName);  //#document
@@ -47,9 +57,14 @@
 
         //取得根元素 documentElement
         let root = document.documentElement;  //HTML
+        // console.log(document.documentElement); //HTML
+        // console.log(document.head); //HEAD
+        // console.log(document.body); //BODY
+        // console.log(root.childNodes);
 
+        //let thebody = root.childNodes[1];  //BODY
 
-        let thebody = root.childNodes[1];  //BODY
+        //console.log(theUl.childNodes);
 
 
         // let theNode = root.childNodes[1].childNodes[3].childNodes[3];  //LI
@@ -63,12 +78,23 @@
         //alert(theNode.parentNode.lastChild.previousSibling.firstChild.nodeValue);  //fffff
 
 
-        let lis = document.getElementsByTagName("li");
-        for (let i = 0; i < lis.length; i++) {
-            //alert(lis.item(i).firstChild.nodeValue);
-            //alert(lis[i].firstChild.nodeValue);
+        let lis = document.getElementsByTagName("");
+        //console.log(lis.length);
+        // for (let i = 0, max = lis.length; i < max; i++) {
+        //     //alert(lis.item(i).firstChild.nodeValue);
+        //     console.log(lis[i].firstChild.nodeValue);
+        // }
 
-        }
+        // for (let item of lis) {
+        //     console.log(item.firstChild.nodeValue);
+        // }
+
+        const liss = Array.from(lis);
+        liss.forEach(item => {
+            console.log(item.firstChild.nodeValue);
+        })
+
+
     </script>
 </body>
 
