@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
+        #div1 {
             width: 200px;
             height: 200px;
             background-color: lightgray;
             position: absolute;
-            top: 100px;
-            left: 300px;
+            top: 50px;
+            left: 150px;
         }
     </style>
 </head>
@@ -26,6 +26,11 @@
     <div id="div1"> </div>
     <script>
         const divNote = document.getElementById("div1");
+        let flag;
+        let startX = 0;
+        let startY = 0;
+        let divX = 0;
+        let divY = 0;
         document.getElementById("button1").addEventListener("click", evt => {
             console.log(evt);  //{}
             console.log(evt.target);
@@ -47,14 +52,30 @@
             //         alert("右鍵");
             //         break;
             // } //0
-            console.log(`screenX:${evt.screenX}, screenY:${evt.screenY}`)
-            console.log(`clientX:${evt.clientX}, clientY:${evt.clientY}`)
-            console.log(`offsetX:${evt.offsetX}, offsetY:${evt.offsetY}`)
+            // console.log(`screenX:${evt.screenX}, screenY:${evt.screenY}`)
+            // console.log(`clientX:${evt.clientX}, clientY:${evt.clientY}`)
+            // console.log(`offsetX:${evt.offsetX}, offsetY:${evt.offsetY}`)
+            flag = true
+            startX = evt.clientX;
+            startY = evt.clientY;
+            divX = divNote.offsetLeft;
+            divY = divNote.offsetTop;
+            // console.log(divX)
+            // console.log(divY)
+            // console.log(startX)
+            // console.log(startY)
+        })
+        divNote.addEventListener("mouseup", evt => flag = false);
+        document.addEventListener("mousemove", evt => {
+            if (flag) {
+                divNote.style.left = `${divX + (evt.clientX - startX)}px`;
+                //evt.clientX + "px";  
+                divNote.style.top = `${divY + (evt.clientY - startY)}px`; //// evt.clientY + "px"; 
+                //console.log(`clientX:${evt.clientX}, clientY:${evt.clientY}`)
+            }
+
         })
 
-        divNote.addEventListener("mousemove", evt => {
-            console.log(`clientX:${evt.clientX}, clientY:${evt.clientY}`)
-        })
 
         document.getElementById("text1").addEventListener("keypress", evt => {
             console.log(evt);  //{}
@@ -70,7 +91,7 @@
             console.log(evt.type); //click
             //console.log(evt.button); //0
             console.log(evt.key); //a
-            console.log(evt.which);// a-z 97-122  0-9 48-57 A-Z 65-90
+            console.log(evt.which);// a-zA-Z 65-90   0-9 48-57
             console.log(evt.altKey);
         })
 

@@ -1,44 +1,88 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>07eventBubble.html</title>
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>07eventBubble.html</title>
+    <style>
+        #idp {
+            background-color: lightblue;
+        }
+
+        #iddiv {
+            background-color: lightgray;
+        }
+    </style>
 </head>
+
 <body>
     <div id="iddiv">
-		div
-		<p id="idp">ppppp</p>
-	</div>
-    <a id="idhref" href="http://tw.yahoo.com" >YAHOO</a>
-
+        div
+        <p id="idp">ppppp</p>
+    </div>
+    <a id="idhref" href="https://www.ispan.com.tw">ispan</a>
+    <form action="a.php">
+        <input type="text" name="userName" id="userName">
+        <input type="text" name="age" placeholder="age">
+        <input type="submit" id="button1">
+    </form>
     <script>
         //==============================================================
         //階層式標籤，事件流程分三階段，
         //事件捕獲(capture)階段==>處理目標階段==>事件氣泡(bubbling)階段
         //============================================================== 
         document.addEventListener("click", docClick);
-        document.getElementById("iddiv").addEventListener("click",divClick); //事件繫結，事件氣泡(bubbling)
-        document.getElementById("idp").addEventListener("click",pClick);
-        //document.getElementById("idhref").addEventListener("click",hrefClick);
+        document.getElementById("iddiv").addEventListener("click", divClick); //事件繫結，事件氣泡(bubbling)
+        document.getElementById("idp").addEventListener("click", pClick);
+        document.getElementById("idhref").addEventListener("click", evt => {
+            if (!window.confirm("真的要去嗎?")) {
+                evt.preventDefault();
+            }
+
+            //alert("ab")
+        });
 
         function docClick() {
-            window.alert("Document");
+            console.log(event.target);
+            console.log(event.currentTarget);
+            //window.alert("Document");
         }
 
         //取消事件氣泡bubbling(stopPropagation())
         function divClick(event) {
-            window.alert("div");
-            
+            console.log(event.target);
+            console.log(event.currentTarget);
+            //event.stopPropagation();
+            //window.alert("div");
+
         }
 
-        function pClick() {
-            window.alert("p");
+
+        function pClick(event) {
+            console.log(event.target);
+            console.log(event.currentTarget);
+            //  event.stopPropagation();
+            // window.alert("p");
+        }
+        document.get
+        function hrefClick(event) {
+            alert("有")
+            event.preventDefault();
         }
 
-        function hrefClick() {
-            
-        }
+        document.addEventListener("contextmenu", evt => {
+            evt.preventDefault();
+        })
+
+        document.getElementById('button1').addEventListener('click', evt => {
+
+            const un = document.getElementById('userName').value;
+            if (un === "") {
+                alert("請輸入");
+                evt.preventDefault();
+            }
+        })
     </script>
 </body>
+
 </html>

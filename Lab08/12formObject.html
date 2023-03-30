@@ -1,36 +1,47 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12formObject.html</title>
 </head>
+
 <body>
-    <form action="get.php" method="get">
-			<label>name:</label><input type="text" name="txtName" value="abc" /><span id="idsp"></span><br/>
-            <input type="checkbox" name="hobby" checked="checked" value="reading"/>
-            <label>reading</label>
-            <input type="checkbox" name="hobby" value="game"/>
-            <label>game</label>
-            <input type="checkbox" name="hobby" value="sleep"/>
-            <label>sleep</label>
-			<br/>
-            <input type="submit" value="送出" />	
-            <input id="idbutton" type="button" value="check" />
-            <input id="idreset" type="button" value="reset" />
-			<input id="idsubmit" type="button" value="submit" />
+    <form name="form1" action="a.php" method="get">
+        <label>name:</label><input type="text" name="txtName" value="abc" /><span id="idsp"></span><br />
+        <input type="checkbox" name="hobby" checked="checked" value="reading" />
+        <label>reading</label>
+        <input type="checkbox" name="hobby" value="game" />
+        <label>game</label>
+        <input type="checkbox" name="hobby" value="sleep" />
+        <label>sleep</label>
+        <br />
+        <input type="submit" value="送出" />
+        <input id="idbutton" type="button" value="check" />
+        <input id="idreset" type="button" value="reset" />
+        <input id="idsubmit" type="button" value="submit" />
     </form>
-    
+    <form name="myForm"></form>
+
     <script>
-        document.querySelector("#idbutton").addEventListener("click",checkf);//事件繫結
-        document.querySelector("#idreset").addEventListener("click",resetf);
-        document.querySelector("#idsubmit").addEventListener("click",submitf);
+        document.querySelector("#idbutton").addEventListener("click", checkf);//事件繫結
+        document.querySelector("#idreset").addEventListener("click", resetf);
+        document.querySelector("#idsubmit").addEventListener("click", submitf);
 
         function checkf() {
+            console.log(document.forms);
+            console.log(document.forms[0].elements);
 
+            // console.log(document.forms[0].submit());
+            console.log(document.forms[0].reset());
+            // console.log(document.form1.txtName);
+            // console.log(document.form1.txtName.value);
+            // console.log(document.myForm);
         }
 
         function resetf() {
             document.forms[0].reset();
+
         }
 
         function submitf() {
@@ -38,4 +49,5 @@
         }
     </script>
 </body>
+
 </html>
