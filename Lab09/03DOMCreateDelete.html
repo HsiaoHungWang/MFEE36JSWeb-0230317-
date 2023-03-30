@@ -1,31 +1,57 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>03DOMCreateDelete.html</title>
 </head>
 
 <body>
-    <div id="iddiv">div</div>
     <input type="button" id="CEle" value="CreateElement">
+    <input type="button" id="REle" value="RemoveElement">
+    <div id="iddiv">div
+
+
+    </div>
 
     <script>
         document.querySelector("#CEle").addEventListener("click", CreateElement)
+        document.querySelector("#REle").addEventListener("click", RemoveElement)
+        const theDiv = document.querySelector('#iddiv');
+        function RemoveElement() {
 
+        }
         function CreateElement() {
-            let theDIV = document.querySelector("#iddiv");  //取得div物件
+            //建立元素節點
+            let theH = document.createElement("h3");   //<h3>
+            //建立文字節點
+            let txtNode = document.createTextNode("Hello DOM!!"); //Hello DOM!!
+            theH.appendChild(txtNode); //<h3>Hello DOM!!</h3>
 
-            let eleP = document.createElement("p");
-            let txtP = document.createTextNode("Hello World");
-            eleP.appendChild(txtP);
+            //將建好的元素加到網頁上
+            theDiv.appendChild(theH);
 
-            theDIV.appendChild(eleP);
+            //<a href="https://www.ispan.com.tw">ispan</a>
 
-            let eleImg = document.createElement("img");
-            eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");
+            let theImg = document.createElement("img"); //<img>
+            theImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif")
+            //<img src="DOM/DOMImage/rabbit-hat.gif"
+            theDiv.appendChild(theImg);
 
-            theDIV.appendChild(eleImg);
+            // let theDIV = document.querySelector("#iddiv");  //取得div物件
+
+            // let eleP = document.createElement("p");
+            // let txtP = document.createTextNode("Hello World");
+            // eleP.appendChild(txtP);
+
+            // theDIV.appendChild(eleP);
+
+            // let eleImg = document.createElement("img");
+            // eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");
+
+            // theDIV.appendChild(eleImg);
         }
     </script>
 </body>
+
 </html>
