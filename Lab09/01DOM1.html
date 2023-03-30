@@ -14,14 +14,22 @@
 <body>
     <h1 id="myH">Hello DOM</h1>
     <p>I am a JavaScript</p>
-    <ul id="ul1">
-        <li>aaaaa</li>
-        <li>bbbbb</li>
-        <li>ccccc</li>
-        <li>ddddd</li>
-        <li>eeeee</li>
-        <li>fffff</li>
-    </ul>
+    <div>
+        <ul id="ul1">
+            <li>aaaaa</li>
+            <li>bbbbb</li>
+            <li>ccccc</li>
+            <li>ddddd</li>
+            <li>eeeee</li>
+            <li>fffff</li>
+        </ul>
+        <ul>
+            <li>xxxxx</li>
+            <li>yyyyy</li>
+            <li>zzzzz</li>
+        </ul>
+    </div>
+
 
 
     <script>
@@ -32,7 +40,9 @@
         //*****************************************
 
         // const theNode = document.getElementById("myH");
+        const theNode = document.querySelector("#my");
         // const theUl = document.getElementById("ul1");
+        const liNode = document.querySelector("#ul1");
         // const liNode = theUl.childNodes[7];
 
         // console.log(liNode.firstChild.nodeValue); //ddddd
@@ -78,7 +88,8 @@
         //alert(theNode.parentNode.lastChild.previousSibling.firstChild.nodeValue);  //fffff
 
 
-        let lis = document.getElementsByTagName("");
+        //let lis = document.getElementsByTagName("li");
+        let lis = document.querySelectorAll("li");
         //console.log(lis.length);
         // for (let i = 0, max = lis.length; i < max; i++) {
         //     //alert(lis.item(i).firstChild.nodeValue);
@@ -94,6 +105,8 @@
             console.log(item.firstChild.nodeValue);
         })
 
+
+        console.log(document.querySelector("div>ul:nth-child(2)>li:nth-child(2)").firstChild.nodeValue);
 
     </script>
 </body>
